@@ -1,0 +1,20 @@
+<root>
+  <styles>
+    <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    <include src="file://{resources}/styles/custom_game/bindersdota_ready_window.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/bindersdota_ready_window.js" /> 
+  </scripts>
+  <Panel class="bindersdota-ready-window-wrapper">
+    <Panel class="bindersdota-ready-window-timer"></Panel>
+    <Panel class="bindersdota_ready_window-ready-button">
+      <ToggleButton id="toggle-ready-button" checked="false" text="Ready" />
+    </Panel>
+    <Panel class="bindersdota_ready_window-force-ready-button">
+      <Button id="ForceReadyButton" onactivate="ForceReady()">
+        <Label text="Force Ready" />
+      </Button>
+    </Panel>
+  </Panel>
+</root>
