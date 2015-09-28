@@ -3,7 +3,264 @@
 "DOTAAbilities"
 {
   "Version"   "1"
+
+  // ==========================
+  // Glimmer of Hope
+  // ==========================
+  "sparkle_glimmer_of_hope"
+  {
+  	// General
+  	"BaseClass"             		"ability_datadriven"
+  	"AbilityTextureName"			"obsidian_destroyer_sanity_eclipse"
+  	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+  	"MaxLevel" 						"4"
+
+  	// Behavior
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT |DOTA_ABILITY_BEHAVIOR_AOE"
+  	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+  	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+  	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+  	// Stats
+  	"AbilityManaCost"				"90 100 110 120"
+    "AbilityCooldown"               "35"
+    "AbilityCastRange"              "700"
+    "AoERadius"						"400"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.5"
+
+    // Special
+    "AbilitySpecial"
+    {
+    	"01"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"heal"				"240 350 460 570"
+    	}
+    	"02"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"radius"				"300"
+    	}
+    }
+
+    // Precache
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
+        "particle" "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_aoe.vpcf"
+        "particle" "particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
+    }
+
+    // Data Driven
+    "OnSpellStart"
+    {
+    	"CreateThinker"
+    	{
+    		"ModifierName"	"heal_incoming_fx"
+    		"Target" 		"POINT"
+    	}
+    	"DelayedAction"
+    	{
+    		"Delay"     "3"
+    		"Action"    
+    		{
+    			"CreateThinker"
+    			{
+    				"ModifierName"	"heal_done_fx"
+    				"Target" 		"POINT"
+    			}
+    			"Heal"
+    			{
+    				"Target"        
+    				{
+    					"Center" "POINT"
+    					"Radius" "%radius"
+    					"Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    					"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    				}
+    				"HealAmount"	"%heal"
+    			}
+    		}
+    	}
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+    	"heal_incoming_fx"
+    	{
+    		"Duration" "3"
+    		"OnCreated"
+            {
+                "AttachEffect"
+                {
+		    		"EffectName"		"particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
+		    		"EffectAttachType"	"follow_origin"
+		    
+		    		"Target" "TARGET"
+    			}
+    		}
+    	}
+    	"heal_done_fx"
+    	{
+    		"OnCreated"
+            {
+                "AttachEffect"
+                {
+		    		"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
+		    		"EffectAttachType"	"follow_origin"
+		    
+		    		"Target" "TARGET"
+		    	}
+		    	"AttachEffect"
+                {
+		    		"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_aoe.vpcf"
+		    		"EffectAttachType"	"follow_origin"
+		    
+		    		"Target" "TARGET"
+		    	}
+		    }
+    	}
+    }
+  }
   
+  // ==========================
+  // Will to Live
+  // ==========================
+  "sparkle_will_to_live"
+  {
+  	// General
+  	"BaseClass"             		"ability_datadriven"
+  	"AbilityTextureName"			"obsidian_destroyer_sanity_eclipse"
+  	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+  	"MaxLevel" 						"4"
+
+  	// Behavior
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT |DOTA_ABILITY_BEHAVIOR_AOE"
+  	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+  	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+  	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+  	// Stats
+  	"AbilityManaCost"				"90 100 110 120"
+    "AbilityCooldown"               "35"
+    "AbilityCastRange"              "700"
+    "AoERadius"						"400"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.5"
+
+    // Special
+    "AbilitySpecial"
+    {
+    	"01"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"heal"				"300 390 480 570"
+    	}
+    	"02"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"radius"				"300"
+    	}
+    }
+
+    // Precache
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
+        "particle" "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_aoe.vpcf"
+        "particle" "particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
+    }
+
+    // Data Driven
+    "OnSpellStart"
+    {
+    	"CreateThinker"
+    	{
+    		"ModifierName"	"heal_incoming_fx"
+    		"Target" 		"POINT"
+    	}
+    	"DelayedAction"
+    	{
+    		"Delay"     "3"
+    		"Action"    
+    		{
+    			"CreateThinker"
+    			{
+    				"ModifierName"	"heal_done_fx"
+    				"Target" 		"POINT"
+    			}
+    			"Heal"
+    			{
+    				"Target"        
+    				{
+    					"Center" "POINT"
+    					"Radius" "%radius"
+    					"Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    					"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    				}
+    				"HealAmount"	"%heal"
+    			}
+    		}
+    	}
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+    	"heal_incoming_fx"
+    	{
+    		"Duration" "3"
+    		"OnCreated"
+            {
+                "AttachEffect"
+                {
+		    		"EffectName"		"particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
+		    		"EffectAttachType"	"follow_origin"
+		    
+		    		"Target" "TARGET"
+    			}
+    		}
+    	}
+    	"heal_done_fx"
+    	{
+    		"OnCreated"
+            {
+                "AttachEffect"
+                {
+		    		"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
+		    		"EffectAttachType"	"follow_origin"
+		    
+		    		"Target" "TARGET"
+		    	}
+		    	"AttachEffect"
+                {
+		    		"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_aoe.vpcf"
+		    		"EffectAttachType"	"follow_origin"
+		    
+		    		"Target" "TARGET"
+		    	}
+		    }
+    	}
+    }
+  }
+
+
+
+
+
+
+
+
+
+  // ==========================
+  // Example ability
+  // ==========================
   "example_ability"
   {
     "ID"              "1852"
