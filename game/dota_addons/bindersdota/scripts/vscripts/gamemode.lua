@@ -23,6 +23,9 @@ require('libraries/animations')
 -- This library can be used for performing "Frankenstein" attachments on units
 require('libraries/attachments')
 
+-- This lua file listens to the button click of the Force Ready Button
+require('ready_window_listener');
+
 -- These internal libraries set up barebones's events and processes.  Feel free to inspect them/change them if you need to.
 require('internal/gamemode')
 require('internal/events')

@@ -7,12 +7,15 @@
     <include src="file://{resources}/scripts/custom_game/bindersdota_ready_window.js" /> 
   </scripts>
   <Panel class="bindersdota-ready-window-wrapper">
-    <Panel class="bindersdota-ready-window-timer"></Panel>
+    <Panel class="bindersdota-ready-window-timer">
+      <Label id="bindersdota-ready-window-timer-label" text="8888" />
+    </Panel>
     <Panel class="bindersdota_ready_window-ready-button">
       <ToggleButton id="toggle-ready-button" checked="false" text="Ready" />
+      <Label id="bindersdota-ready-window-ready-amount" text="0 / X Ready" />
     </Panel>
-    <Panel class="bindersdota_ready_window-force-ready-button">
-      <Button id="ForceReadyButton" onactivate="ForceReady()">
+    <Panel id="FRB" class="bindersdota_ready_window-force-ready-button">
+      <Button id="ForceReadyButton" onactivate="ForceReadyClick()">
         <Label text="Force Ready" />
       </Button>
     </Panel>
