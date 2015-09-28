@@ -25,7 +25,6 @@
   	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
   	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
   	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-  	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
   	// Stats
   	"AbilityManaCost"				"90 100 110 120"
@@ -139,22 +138,20 @@
   {
   	// General
   	"BaseClass"             		"ability_datadriven"
-  	"AbilityTextureName"			"obsidian_destroyer_sanity_eclipse"
+  	"AbilityTextureName"			"templar_assassin_meld"
   	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
   	"MaxLevel" 						"4"
 
   	// Behavior
-  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT |DOTA_ABILITY_BEHAVIOR_AOE"
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
   	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
   	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
   	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-  	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
   	// Stats
-  	"AbilityManaCost"				"90 100 110 120"
-    "AbilityCooldown"               "35"
+  	"AbilityManaCost"				"60"
+    "AbilityCooldown"               "20"
     "AbilityCastRange"              "700"
-    "AoERadius"						"400"
 
     "AbilityChannelTime"            "0.0"
     "AbilityCastPoint"              "0.5"
@@ -165,93 +162,94 @@
     	"01"
     	{
     		"var_type"			"FIELD_INTEGER"
-    		"heal"				"300 390 480 570"
+    		"duration"			"8 10 12 14"
     	}
     	"02"
     	{
     		"var_type"			"FIELD_INTEGER"
-    		"radius"				"300"
+    		"dodge_per_second"	"20"
+    		// Second 1: 20% Evasion
+    		// Second 2: 36% Evasion
+    		// Second 3: 49% Evasion
+    		// Second 4: 60% Evasion
+    		// Second 5: 68% Evasion
+    		// Second 6: 74% Evasion
+    		// Second 7: 80% Evasion
+    		// Second 8: 84% Evasion
+    		// Second 9: 87% Evasion
+    		// Second 10: 90% Evasion
+    		// Second 11: 92% Evasion
+    		// Second 12: 94% Evasion
+    		// Second 13: 95% Evasion
+    	}
+    	"03"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"tick_interval"		"1"
     	}
     }
 
     // Precache
     "precache"
     {
-        "particle" "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
-        "particle" "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_aoe.vpcf"
-        "particle" "particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
+        "particle" "particles/units/heroes/hero_phantom_assassin/phantom_assassin_blur.vpcf"
     }
 
     // Data Driven
     "OnSpellStart"
     {
-    	"CreateThinker"
+    	"ApplyModifier"
     	{
-    		"ModifierName"	"heal_incoming_fx"
-    		"Target" 		"POINT"
-    	}
-    	"DelayedAction"
-    	{
-    		"Delay"     "3"
-    		"Action"    
-    		{
-    			"CreateThinker"
-    			{
-    				"ModifierName"	"heal_done_fx"
-    				"Target" 		"POINT"
-    			}
-    			"Heal"
-    			{
-    				"Target"        
-    				{
-    					"Center" "POINT"
-    					"Radius" "%radius"
-    					"Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    					"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    				}
-    				"HealAmount"	"%heal"
-    			}
-    		}
+    		"ModifierName"	"dodge_buff"
+    		"Target" 		"TARGET"
+    		"Duration"		"%duration"
     	}
     }
 
     // Modifiers
     "Modifiers"
     {
-    	"heal_incoming_fx"
+    	"dodge_buff"
     	{
-    		"Duration" "3"
-    		"OnCreated"
-            {
-                "AttachEffect"
-                {
-		    		"EffectName"		"particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
-		    		"EffectAttachType"	"follow_origin"
-		    
-		    		"Target" "TARGET"
+    		"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE"
+    		"TextureName" 			"templar_assassin_meld"
+
+    		"IsBuff" 				"1"
+    		"IsHidden" 				"0"
+    		"IsPurgable" 			"0"
+
+    		"EffectName" 			"particles/units/heroes/hero_phantom_assassin/phantom_assassin_blur.vpcf"
+    		"EffectAttachType"  	"follow_origin"
+    		"ThinkInterval"  		"1.0"
+    		"OnIntervalThink"
+    		{
+    			"ApplyModifier"
+    			{
+    				"ModifierName"	"modifier_dodge_chance"
+    				"Target" 		"TARGET"
     			}
     		}
+    		"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"Abilities/sparkle_will_to_live.lua"
+					"Function"		"WillToLiveRemove"
+					"modifier"		"modifier_dodge_chance"
+				}
+			}
     	}
-    	"heal_done_fx"
-    	{
-    		"OnCreated"
-            {
-                "AttachEffect"
-                {
-		    		"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
-		    		"EffectAttachType"	"follow_origin"
-		    
-		    		"Target" "TARGET"
-		    	}
-		    	"AttachEffect"
-                {
-		    		"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_aoe.vpcf"
-		    		"EffectAttachType"	"follow_origin"
-		    
-		    		"Target" "TARGET"
-		    	}
-		    }
-    	}
+
+    	"modifier_dodge_chance"
+		{
+			"IsHidden"		"1"
+			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_EVASION_CONSTANT" "%dodge_per_second"
+			}
+		}
     }
   }
 
