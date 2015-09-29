@@ -93,5 +93,7 @@ function RipTide_MarkAsVictim( event )
 	local caster = event.caster
 	local target = event.target
 
-	table.insert( caster.riptide_victims, target )
+	if caster:GetTeamNumber() ~= target:GetTeamNumber() then 
+      table.insert( caster.riptide_victims, target ) 
+end
 end

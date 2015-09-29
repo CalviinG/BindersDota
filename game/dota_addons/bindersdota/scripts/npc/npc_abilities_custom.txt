@@ -297,12 +297,12 @@
             "02"
             {
                 "var_type"          "FIELD_INTEGER"
-                "duration"          "320"
+                "radius"          "320"
             }
             "03"
             {
-                "var_type"          "FIELD_INTEGER"
-                "duration"          "8 8 8 8"
+                "var_type"          "FIELD_FLOAT"
+                "duration"          "8.0 8.0 8.0 8.0"
             }
         }
 
