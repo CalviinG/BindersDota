@@ -27,13 +27,13 @@
   	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
   	// Stats
-  	"AbilityManaCost"				"90 100 110 120"
-    "AbilityCooldown"               "35"
-    "AbilityCastRange"              "700"
-    "AoERadius"						"400"
+  	"AbilityManaCost"       "90 100 110 120"
+    "AbilityCooldown"       "35"
+    "AbilityCastRange"      "700"
+    "AoERadius"             "400"
 
-    "AbilityChannelTime"            "0.0"
-    "AbilityCastPoint"              "0.5"
+    "AbilityChannelTime"    "0.0"
+    "AbilityCastPoint"      "0.5"
 
     // Special
     "AbilitySpecial"
@@ -233,7 +233,7 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile"	"Abilities/sparkle_will_to_live.lua"
+					"ScriptFile"	"abilities/sparkle_will_to_live.lua"
 					"Function"		"WillToLiveRemove"
 					"modifier"		"modifier_dodge_chance"
 				}
@@ -242,8 +242,8 @@
 
     	"modifier_dodge_chance"
 		{
-			"IsHidden"		"1"
-			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			"IsHidden"		     "1"
+			"Attributes"         "MODIFIER_ATTRIBUTE_MULTIPLE"
 
 			"Properties"
 			{
@@ -260,32 +260,48 @@
   {
     // General
     "BaseClass"                 "ability_datadriven"
-    "AbilityTextureName"      "enchantress_enchant"
-    "AbilityType"         "DOTA_ABILITY_TYPE_BASIC"
-    "MaxLevel"            "4"
+    "AbilityTextureName"        "enchantress_enchant"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
 
     // Behavior
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
     // Special
     "AbilitySpecial"
     {
       "01"
       {
-        "var_type"      "FIELD_INTEGER"
-        "break_time"      "4"
+        "var_type"              "FIELD_INTEGER"
+        "break_time"            "4"
       }
       "02"
       {
-        "var_type"      "FIELD_INTEGER"
+        "var_type"              "FIELD_INTEGER"
         "movement_speed_bonus"  "20 30 40 50"
       }
       "03"
       {
-        "var_type"      "FIELD_FLOAT"
-        "mana_regen_bonus"   "2 3.5 5 6.5"
+        "var_type"              "FIELD_FLOAT"
+        "mana_regen_bonus"      "2 3.5 5 6.5"
       }
     }
+
+    // Datadriven
+    "OnUpgrade"
+    {
+        "RemoveModifier"
+        {
+            "ModifierName"  "modifier_grace_active"
+            "Target"        "CASTER"
+        }
+        "ApplyModifier"
+        {
+            "ModifierName"  "modifier_grace_active"
+            "Target"        "CASTER"
+        }
+    }
+
 
     // Modifiers
     "Modifiers"
@@ -312,8 +328,8 @@
           }
           "RunScript"
           {
-            "ScriptFile"  "Abilities/sparkle_grace.lua"
-            "Function"    "GraceBonusReset"
+            "ScriptFile"    "abilities/sparkle_grace.lua"
+            "Function"      "GraceBonusReset"
           }
         }
       }
@@ -330,7 +346,193 @@
     }
   }
 
+  // ==========================
+  // Indignation
+  // ==========================
+  "sparkle_indignation"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "skywrath_mage_concussive_shot"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+    "MaxLevel"                  "3"
 
+    // Behavior
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    // Stats
+    "AbilityManaCost"               "200 300 400"
+    "AbilityCooldown"               "160 140 120"
+    "AbilityCastRange"              "900"
+
+    "AbilityCastPoint"              "0.0"
+
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+        {
+            "var_type"                  "FIELD_INTEGER"
+            "radius"                    "900 900 900"
+        }
+        "02"
+        {
+            "var_type"                  "FIELD_FLOAT"
+            "bolt_interval"             "2.0 2.0 2.0"
+        }
+        "03"
+        {
+            "var_type"                  "FIELD_INTEGER"
+            "bolts"                     "5 5 5"
+        }
+        "04"
+        {
+            "var_type"                  "FIELD_INTEGER"
+            "duration_tooltip"          "10 10 10"
+        }
+        "05"
+        {
+            "var_type"                  "FIELD_INTEGER"
+            "damage_radius_tooltip"     "250"
+        }
+        "04"
+        {
+            "var_type"                  "FIELD_INTEGER"
+            "damage_tooltip"            "150 225 300"
+        }
+    }
+
+    
+
+    // Datadriven
+    "OnUpgrade"
+    {
+        "RunScript"
+        {
+            "ScriptFile"            "abilities/sparkle_indignation.lua"
+            "Function"              "indignation_upgrade"
+        }
+    }
+
+    "OnSpellStart"
+    {
+
+        "RunScript"
+        {
+            "ScriptFile"    "abilities/sparkle_indignation.lua"
+            "Function"      "indignation_start"
+        }
+    }
+  }
+
+  // ==========================
+  // Indignation Bolt
+  // ==========================
+  "sparkle_indignation_bolt"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "skywrath_mage_arcane_bolt"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "3"
+
+    // Behavior
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    // Stats
+    "AbilityManaCost"           "0"
+    "AbilityCooldown"           "0"
+    "AbilityCastRange"          "900"
+
+    "AbilityChannelTime"        "0.0"
+    "AbilityCastPoint"          "0.0"
+    "IsCastableWhileHidden"     "1"
+
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "launch_radius"     "900"
+        }
+        "02"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "damage_radius"     "250"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "speed"             "650 650 650"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "damage"            "150 225 300"
+        }
+    }
+
+    // Precache
+    "precache"
+    {
+        "particle"          "particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf"
+        "particle"          "particles/units/heroes/hero_luna/luna_eclipse.vpcf"
+    }
+
+    // Data driven
+    "OnSpellStart"
+    {
+        "FireEffect"
+        {
+            "EffectName"        "particles/units/heroes/hero_luna/luna_eclipse.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "CASTER"
+        }
+
+        "RunScript"
+        {
+            "ScriptFile"    "abilities/sparkle_indignation_bolt.lua"
+            "Function"      "indignation_bolt_seek_target"
+        }
+    }
+
+    "OnProjectileHitUnit"
+    {
+        "ActOnTargets"
+        {
+            "Target"
+            {
+                "Center"    "TARGET"
+                "Radius"    "%damage_radius"
+                "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+
+            "Action"
+            {
+                "Damage"
+                {
+                    "Target"    "TARGET"
+                    "Damage"    "%damage"
+                    "Type"      "DAMAGE_TYPE_MAGICAL"
+                }
+            }
+        }
+    }
+  }
 
 
 

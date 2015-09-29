@@ -10,7 +10,8 @@
     "Ability1"        "sparkle_glimmer_of_hope" 
     "Ability2"        "sparkle_will_to_live" 
     "Ability3"        "sparkle_grace" 
-    "Ability4"        ""
+    "Ability4"        "sparkle_indignation"
+    "Ability5"        "sparkle_indignation_bolt"
     "ArmorPhysical"       "-3"               // Physical protection.
 
     "AttackDamageMin"     "20"                 // Damage range min.
