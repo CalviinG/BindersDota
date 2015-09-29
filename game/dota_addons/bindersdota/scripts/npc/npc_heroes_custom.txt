@@ -28,6 +28,34 @@
     "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
   }
 
+    // ==========================
+    // Hero
+    // Vapora
+    // ==========================
+    "npc_dota_hero_vapora"
+  {
+    "override_hero"   "npc_dota_hero_naga_siren"
+    "Ability1"        "vapora_rip_tide" 
+    "Ability2"        "vapora_flood" 
+    "Ability3"        "vapora_as_water" 
+    "Ability4"        "vapora_reflection"
+    "ArmorPhysical"       "2"               // Physical protection.
+
+    "AttackDamageMin"     "44"                 // Damage range min.
+    "AttackDamageMax"     "50"                 // Damage range max.
+
+    "AttributeBaseStrength"   "18"                  // Base strength
+    "AttributeStrengthGain"   "1.6"                   // Strength bonus per level.
+    "AttributeBaseIntelligence" "18"                   // Base intelligence
+    "AttributeIntelligenceGain" "1.9"                   // Intelligence bonus per level.
+    "AttributeBaseAgility"    "23"                   // Base agility
+    "AttributeAgilityGain"    "2.7"                   // Agility bonus per level.
+
+    "MovementSpeed"       "290"                 // Speed.
+    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
+  }
+
  // ---------------------------------------------
  //  TEMPLATE
  // ---------------------------------------------
