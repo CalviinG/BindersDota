@@ -253,6 +253,83 @@
     }
   }
 
+  // ==========================
+  // Grace
+  // ==========================
+  "sparkle_grace"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"      "enchantress_enchant"
+    "AbilityType"         "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"            "4"
+
+    // Behavior
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "break_time"      "4"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "movement_speed_bonus"  "20 30 40 50"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "mana_regen_bonus"   "2 3.5 5 6.5"
+      }
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+      "modifier_grace"
+      {
+        "IsHidden"    "1"
+        "Passive" "1"
+
+        "OnCreated"
+        {
+          "ApplyModifier"
+          {
+            "ModifierName"  "modifier_grace_active"
+            "Target"        "CASTER"
+          }
+        }
+        "OnAttacked"
+        {
+          "RemoveModifier"
+          {
+            "ModifierName"  "modifier_grace_active"
+            "Target"        "CASTER"
+          }
+          "RunScript"
+          {
+            "ScriptFile"  "Abilities/sparkle_grace.lua"
+            "Function"    "GraceBonusReset"
+          }
+        }
+      }
+
+      "modifier_grace_active"
+      {
+
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%movement_speed_bonus"
+          "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%mana_regen_bonus"
+        }
+      }
+    }
+  }
+
 
 
 
