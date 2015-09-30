@@ -53,9 +53,11 @@
     // Precache
     "precache"
     {
-        "particle" "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
-        "particle" "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_aoe.vpcf"
-        "particle" "particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
+        "soundfile"     "soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
+        "soundfile"     "soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+        "particle"      "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
+        "particle"      "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area_aoe.vpcf"
+        "particle"      "particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
     }
 
     // Data Driven
@@ -106,6 +108,12 @@
 		    
 		    		"Target" "TARGET"
     			}
+
+                "FireSound"
+                {
+                    "EffectName"    "Hero_Wisp.Relocate"
+                    "Target"        "CASTER"
+                }
     		}
     	}
     	"heal_done_fx"
@@ -126,6 +134,11 @@
 		    
 		    		"Target" "TARGET"
 		    	}
+                "FireSound"
+                {
+                    "EffectName"    "Hero_Chen.HolyPersuasionCast"
+                    "Target"        "CASTER"
+                }
 		    }
     	}
     }
@@ -192,7 +205,8 @@
     // Precache
     "precache"
     {
-        "particle" "particles/units/heroes/hero_phantom_assassin/phantom_assassin_blur.vpcf"
+        "soundfile"     "soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"    
+        "particle"      "particles/units/heroes/hero_phantom_assassin/phantom_assassin_blur.vpcf"
     }
 
     // Data Driven
@@ -204,6 +218,11 @@
     		"Target" 		"TARGET"
     		"Duration"		"%duration"
     	}
+        "FireSound"
+        {
+            "EffectName"    "Hero_Enchantress.EnchantCast"
+            "Target"        "TARGET"
+        }
     }
 
     // Modifiers
@@ -488,6 +507,7 @@
     // Precache
     "precache"
     {
+        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"    
         "particle"          "particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf"
         "particle"          "particles/units/heroes/hero_luna/luna_eclipse.vpcf"
     }
@@ -495,6 +515,12 @@
     // Data driven
     "OnSpellStart"
     {
+        "FireSound"
+        {
+            "EffectName"    "Hero_ObsidianDestroyer.SanityEclipse.Cast"
+            "Target"        "CASTER"
+        }
+
         "FireEffect"
         {
             "EffectName"        "particles/units/heroes/hero_luna/luna_eclipse.vpcf"
