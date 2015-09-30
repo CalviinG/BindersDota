@@ -297,7 +297,7 @@
             "02"
             {
                 "var_type"          "FIELD_INTEGER"
-                "radius"          "320"
+                "radius"            "320"
             }
             "03"
             {
@@ -420,12 +420,20 @@
                     {
                         "EffectName"            "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
                         "EffectAttachType"      "follow_origin"
-                        "Target"                "TARGET"
+                        "Target"                "TARGET"  
+
                         "ControlPoints"
                         {
-                            "00" "0 0 0"
-                            "01" "%radius 1 1"                            
+                            "00"    "0 0 0"
+                            "01"    "%radius 1 1"
+                            "15"    "20 175 227"
+                            "16"    "1 0 0"                       
                         }
+                    }
+                    "FireSound"
+                    {
+                        "EffectName"            "Hero_Alchemist.AcidSpray"
+                        "Target"                "TARGET"
                     }
                 }
             }
@@ -433,7 +441,6 @@
             {
                 "IsDebuff"          "1"
                 "IsPurgable"        "0"
-                "EffectName"        "particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
                 "ThinkInterval"     "%tick_rate"
                 "OnIntervalThink"
                 {
@@ -472,7 +479,7 @@
             "04"
             {
                 "var_type"          "FIELD_INTEGER"
-                "attackspeed_reduction"   "-100 -15 -20 -25"
+                "attackspeed_reduction"   "-10 -15 -20 -25"
             }
             "05"
             {
@@ -484,8 +491,8 @@
         //-----------------------------------------------------------------------------------
         "precache"
         {
-        "particle" "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
-        "particle"  "particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
+            "particle" "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
         }
     }
 
@@ -549,7 +556,7 @@
         "BaseClass"             "ability_datadriven"
         "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
         "AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
-        "AbilityTextureName"    "terrorblade_conjure_image"
+        "AbilityTextureName"    "naga_siren_mirror_image"
 
         //Casting
         //-----------------------------------------------------------------------------------
@@ -589,24 +596,70 @@
                 "var_type"                      "FIELD_FLOAT"
                 "illusion_incoming_tooltip"     "200.0"
             }
+            "07"
+            {
+
+                "var_type"                      "FIELD_FLOAT"
+                "invuln_duration"               "0.3"
+            }
         }
 
         "precache"
         {
             "soundfile"                         "soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
+            "particles"                         "particles/units/heroes/hero_siren/naga_siren_mirror_image.vpcf"
         }
 
         "OnSpellStart"
         {
-            "FireSound"
+            "ApplyModifier"
             {
-                "EffectName"                    "Hero_Terrorblade.ConjureImage"
-                "Target"                        "CASTER"
+                "ModifierName"  "modifier_vapora_reflection"
+                "Target"        "CASTER"
             }
-            "RunScript"
-            {
-                "ScriptFile"                    "abilities/reflection_lua.lua"
-                "Function"                      "Reflection"
+        }
+
+        "Modifiers"
+        {
+            "modifier_vapora_reflection"
+            {      
+                "Duration"          "%invuln_duration"
+                "IsHidden"          "1"
+
+                "States"
+                {
+                    "MODIFIER_STATE_INVULNERABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_LOW_ATTACK_PRIORITY"
+                    "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_NO_HEALTH_BAR"          "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_UNSELECTABLE"           "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_STUNNED"                "MODIFIER_STATE_VALUE_ENABLED"
+                }
+
+                "OnCreated"
+                {
+                    "AttachEffect"
+                    {
+                        "EffectName"        "particles/units/heroes/hero_siren/naga_siren_mirror_image.vpcf"
+                        "EffectAttachType"  "follow_origin"
+                        "Target"            "CASTER"
+                    }
+
+                    "FireSound"
+                    {
+                        "EffectName"    "Hero_NagaSiren.MirrorImage"
+                        "Target"        "CASTER"
+                    }
+                }
+
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "abilities/reflection_lua.lua"
+                        "Function"      "Reflection"
+                    }
+                }
             }
         }
     }
