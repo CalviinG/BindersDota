@@ -386,7 +386,7 @@
 
     // Stats
     "AbilityManaCost"               "200 300 400"
-    "AbilityCooldown"               "160 140 120"
+    "AbilityCooldown"               "150 130 110"
     "AbilityCastRange"              "900"
 
     "AbilityCastPoint"              "0.0"
@@ -622,7 +622,7 @@
         {
             "RunScript"
             {
-                "ScriptFile"        "abilities/rip_tide_lua.lua"
+                "ScriptFile"        "abilities/vapora_rip_tide.lua"
                 "Function"          "RipTide"
             }
         }
@@ -650,7 +650,7 @@
                         {
                             "RunScript"
                             {
-                                "ScriptFile"        "abilities/rip_tide_lua.lua"
+                                "ScriptFile"        "abilities/vapora_rip_tide.lua"
                                 "Function"          "RipTide_MarkAsVictim"
                             }
                         }
@@ -945,7 +945,7 @@
                 {
                     "RunScript"
                     {
-                        "ScriptFile"    "abilities/reflection_lua.lua"
+                        "ScriptFile"    "abilities/vapora_reflection.lua"
                         "Function"      "Reflection"
                     }
                 }
@@ -953,282 +953,130 @@
         }
     }
 
-
-
-
-
-
+  // ==========================
+  // Hero
+  // Celsius
+  // ==========================
 
   // ==========================
-  // Example ability
+  // Hailstorm
   // ==========================
-  "example_ability"
+  "celsius_hailstorm"
   {
-    "ID"              "1852"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"      "holdout_blade_fury"
+  	// General
+  	"BaseClass"             		"ability_datadriven"
+  	"AbilityTextureName"			"crystal_maiden_freezing_field"
+  	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+  	"MaxLevel" 						"4"
 
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "1000"
-    "AbilityCastPoint"        "0.0"
-    "AbilityCooldown"       "10.0"
-    "AbilityChannelTime"      "2.0 1.8 1.6 1.5"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
-    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
-    "AbilityDamage"         "400 600 800 1000"
-    
-    "precache"
-    {
-      "particle"          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
-    }
+  	// Behavior
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+  	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "300"
-    "SideShop"            "1"
-    
-    "OnSpellStart"
-    {
-      "ApplyModifier"
-      {
-        "Target"    "CASTER"
-        "ModifierName"  "modifier_channel_start"
-      }
-      "FireSound"
-      {
-        "EffectName"    "Hero_Gyrocopter.CallDown.Fire"
-        "Target"      "CASTER"
-      }
-    }
-    
-    "OnChannelSucceeded"
-    {
-      "RemoveModifier"
-      {
-        "Target"        "CASTER"
-        "ModifierName"      "modifier_channel_start"
-      }
-      "AttachEffect"
-      {
-        "EffectName"      "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
-        "EffectAttachType"    "follow_origin"
-        "EffectRadius"      "%radius"
-        "EffectDurationScale" "1"
-        "EffectLifeDurationScale" "1"
-        "EffectColorA"      "255 0 0"
-        "EffectColorB"      "255 0 0"
-        "Target"      "CASTER"
-      }
-      
-      "Damage"
-      {
-        "Type"          "DAMAGE_TYPE_PURE"
-        "Damage"        "%damage"
-        "Target"
-        {
-          "Center"      "CASTER"
-          "Radius"      "%radius"
-          "Teams"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
-          "Types"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        }
-      }
-      
-      "Knockback"
-      {
-        "Center"  "CASTER"
-        "Target"
-        {
-          "Center"  "CASTER"
-          "Radius"  "%radius"
-          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        }
-        "Duration"  "%duration"
-        "Distance"  "%distance"
-        "Height"  "%height"
-      }
-      
-      "FireSound"
-      {
-        "EffectName"    "Hero_Gyrocopter.CallDown.Damage"
-        "Target"      "CASTER"
-      }
-    }
-    
-    "OnChannelFinish"
-    {
-      "RemoveModifier"
-      {
-        "Target"        "CASTER"
-        "ModifierName"      "modifier_channel_start"
-      }
-    }
-    
-    "OnChannelInterrupted"
-    {
-      "RemoveModifier"
-      {
-        "Target"    "CASTER"
-        "ModifierName"  "modifier_channel_start"
-      }
-    }
-    
-    "Modifiers"
-    {
-      "modifier_channel_start"
-      {
-        "OnCreated"
-        {
-          "AttachEffect"
-          {
-            "IsHidden" "1"
-            "EffectName"    "particles/test_particle/channel_field_2.vpcf"//"gyro_calldown_marker_c"//"gyrocopter_call_down"
-            "EffectAttachType"  "follow_origin"
-            "Target"      "CASTER"
-            
-            "EffectRadius"      "%radius"
-            "EffectColorA"      "255 0 0"
-            "EffectColorB"      "255 0 0"
-          
-            "ControlPoints"
-            {
-              "00"    "50 100 5"
-            }
-          }
-        }
-      }
-    }
-    
-    // Special  
-    //-------------------------------------------------------------------------------------------------------------
+  	// Stats
+  	"AbilityManaCost"       "90 100 110 120"
+    "AbilityCooldown"       "16"
+
+    "AbilityChannelTime"    "0.0"
+    "AbilityCastPoint"      "0.3"
+
+    // Special
     "AbilitySpecial"
     {
-      "01"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "0.5"
-      }
-      
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "damage"        "400 600 800 1000"
-      }
-      
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "radius"        "550 550 600 650"
-      }
-      
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "distance"        "400 500 600 700"
-      }
-      
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "height"        "100 200 300 400"
-      }
+    	"01"
+    	{
+    		"var_type"					"FIELD_INTEGER"
+			"damage"					"170 220 270 320"
+    	}
+    	"02"
+    	{
+    		"var_type"					"FIELD_INTEGER"
+			"ms_slow"					"-20 -30 -40 -50"
+    	}
+    	"03"
+    	{
+    		"var_type"					"FIELD_INTEGER"
+			"ms_duration"				"4 5 6 7"
+    	}
+    	"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"search_radius"				"750 750 750"
+		}
+		"05"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"novas"						"3 3 3"
+		}
+		"06"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"nova_radius"				"325 325 325"
+		}
     }
-  }
-  
-//-------------------
-// Dummy stuff
-//-------------------
-  
-  "dummy_unit"
-  {
-    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-    "MaxLevel"                      "1"
-    
+
+    // Precache
+    "precache"
+	{
+		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+		"particle"				"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf"
+		"particle"				"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
+		"particle"				"particles/generic_gameplay/generic_slowed_cold.vpcf"
+		"particle"				"particles/status_fx/status_effect_frost_lich.vpcf"
+	}
+
+    // Data Driven
+    "OnSpellStart"
+    {
+    	"FireSound"
+		{
+			"EffectName"	"Hero_Crystal.CrystalNova"
+			"Target" 		"CASTER"
+		}
+
+		"ApplyModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_hailstorm_fx"
+		}
+
+    	"RunScript"
+		{
+			"ScriptFile"	"abilities/celsius_hailstorm.lua"
+			"Function"		"hailstorm_start"
+		}
+    }
+
     "Modifiers"
     {
-      "dummy_unit"
-      {
-          "Passive"                        "1"
-          "IsHidden"                        "1"    
-          "States"
-          {
-              "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-              "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-              "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
-              "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-          }
-      }
+    	"modifier_hailstorm_fx"
+    	{
+    		"IsHidden"			"1"
+    		"Duration"			"1"
+    
+    		"AttachEffect"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"EffectRadius"		"%search_radius"
+			}
+    	}
+
+    	"modifier_hailstorm_debuff"
+		{
+			"Duration"				"%ms_duration"
+			"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+			"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
+			"StatusEffectPriority"	"10"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%ms_slow"
+			}
+		}
     }
-  }
-  
-  "barebones_empty1"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty3"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty4"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty5"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
-  }
-  
-  "barebones_empty6"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-    "MaxLevel"            "0"
-    "BaseClass"           "ability_datadriven"
-    "AbilityTextureName"            "rubick_empty1"
   }
 }
 
