@@ -978,6 +978,7 @@
   	// Stats
   	"AbilityManaCost"       "90 100 110 120"
     "AbilityCooldown"       "16"
+    "AbilityCastRange"		"750"
 
     "AbilityChannelTime"    "0.0"
     "AbilityCastPoint"      "0.3"
@@ -1003,17 +1004,17 @@
     	"04"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"search_radius"				"750 750 750"
+			"search_radius"				"750 750 750 750"
 		}
 		"05"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"novas"						"3 3 3"
+			"novas"						"3 3 3 3"
 		}
 		"06"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"nova_radius"				"325 325 325"
+			"nova_radius"				"325 325 325 325"
 		}
     }
 
@@ -1074,6 +1075,233 @@
 			"Properties"
 			{
 				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%ms_slow"
+			}
+		}
+    }
+  }
+
+  // ==========================
+  // Icebrand
+  // ==========================
+  "celsius_icebrand"
+  {
+  	// General
+  	"BaseClass"             		"ability_datadriven"
+  	"AbilityTextureName"			"invoker_ice_wall"
+  	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+  	"MaxLevel" 						"4"
+
+  	// Behavior
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT |DOTA_ABILITY_BEHAVIOR_AOE"
+  	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+  	// Stats
+  	"AbilityManaCost"				"60 80 100 120"
+    "AbilityCooldown"               "14"
+    "AbilityCastRange"              "600"
+    "AoERadius"             		"300"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.3"
+
+    // Special
+    "AbilitySpecial"
+    {
+    	"01"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"duration"			"8"
+    	}
+    	"02"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"dmg_buff"			"35 40 45 50"
+    	}
+    	"03"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"as_slow"			"-30"
+    	}
+    	"04"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"ms_slow"			"-60"
+    	}
+    	"05"
+    	{
+    		"var_type"			"FIELD_INTEGER"
+    		"radius"			"300"
+    	}
+    }
+
+    // Precache
+    "precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+		"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch.vpcf"
+		"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch_buff.vpcf"	
+		"particle"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+		"particle"			"particles/status_fx/status_effect_frost_lich.vpcf"
+	}
+
+    // Data Driven
+    "OnSpellStart"
+    {
+    	"ApplyModifier"
+    	{
+    		"Target"        
+    		{
+    			"Center" "POINT"
+    			"Radius" "%radius"
+    			"Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    			"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    		}
+    		"ModifierName"	"icebrand_buff"
+    		"Duration"		"%duration"
+    	}
+    	"ApplyModifier"
+    	{
+    		"Target"        
+    		{
+    			"Center" "POINT"
+    			"Radius" "%radius"
+    			"Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    			"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    		}
+    		"ModifierName"	"snow_hands"
+    		"Duration"		"%duration"
+    	}
+        "FireSound"
+        {
+            "EffectName"    "hero_Crystal.frostbite"
+            "Target"        "CASTER"
+        }
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+    	"icebrand_buff"
+    	{
+			"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+			"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
+			"StatusEffectPriority"	"10"
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%dmg_buff"
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"		"%ms_slow"
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%as_slow"
+			}
+    	}
+    	"snow_hands"
+    	{
+    		"IsHidden"			"1"
+    		"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch_buff.vpcf"
+			"EffectAttachType"	"attach_attack1"
+    	}
+    }
+  }
+
+  // ==========================
+  // Absolute Zero
+  // ==========================
+  "celsius_absolute_zero"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "ancient_apparition_ice_vortex"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "as_slow"            	"-3 -4 -5 -6"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+       	"ms_slow"            	"-5 -6 -7 -8"
+   	  }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "max_stacks"     	 	"20"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"      			"700"
+      }
+      "05"
+      {
+      	"var_type"				"FIELD_INTEGER"
+      	"slow_duration"			"3"
+      }
+      "06"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "stack_up_time"  		"2"
+      }
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+      "modifier_absolute_zero"
+      {
+        "IsHidden"    	"1"
+        "Passive" 		"1"
+
+        "Aura"			"modifier_absolute_zero_aura"
+        "Aura_Radius"	"%radius"
+        "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_NONE"
+      }
+
+      "modifier_absolute_zero_aura"
+      {
+      	"IsHidden"		"1"
+      	"IsDebuff"		"1"
+
+		"ThinkInterval"  		"%stack_up_time"
+      	"OnIntervalThink"
+    	{
+    		"RunScript"
+			{
+				"ScriptFile"				"abilities/celsius_absolute_zero.lua"
+				"Function"					"apply_debuff"
+				"debuff_duration"			"%slow_duration"
+				"max_stacks"				"%max_stacks"
+			}
+    	}
+      }
+
+		"modifier_absolute_zero_base"
+		{
+			"IsHidden"			"1"
+			"Duration"			"%slow_duration"
+		}
+
+      	"modifier_absolute_zero_stack"
+		{
+			"IsDebuff"			"1"
+			"Duration"			"%slow_duration"
+		
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"		"%ms_slow"
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%as_slow"
 			}
 		}
     }

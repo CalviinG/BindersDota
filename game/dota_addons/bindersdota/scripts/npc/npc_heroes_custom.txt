@@ -65,8 +65,8 @@
  {
     "override_hero"   "npc_dota_hero_crystal_maiden"
     "Ability1"        "celsius_hailstorm" 
-    "Ability2"        "" 
-    "Ability3"        "" 
+    "Ability2"        "celsius_icebrand" 
+    "Ability3"        "celsius_absolute_zero" 
     "Ability4"        ""
     "ArmorPhysical"       "-2"               // Physical protection.
 
