@@ -14,8 +14,9 @@
     "Ability5"        "sparkle_indignation_bolt"
     "ArmorPhysical"       "-3"               // Physical protection.
 
-    "AttackDamageMin"     "20"                 // Damage range min.
-    "AttackDamageMax"     "25"                 // Damage range max.
+    "AttackDamageMin"     	"20"                 // Damage range min.
+    "AttackDamageMax"     	"25"                 // Damage range max.
+    "AttackRange"      		"650"     // Range within a target can be attacked.
 
     "AttributeBaseStrength"   "17"                  // Base strength
     "AttributeStrengthGain"   "1.5"                   // Strength bonus per level.
@@ -72,6 +73,7 @@
 
     "AttackDamageMin"     "16"                 // Damage range min.
     "AttackDamageMax"     "23"                 // Damage range max.
+    "AttackRange"      		"600"     // Range within a target can be attacked.
 
     "AttributeBaseStrength"   "16"                  // Base strength
     "AttributeStrengthGain"   "1.6"                   // Strength bonus per level.
@@ -98,8 +100,10 @@
     "Ability4"        ""
     "ArmorPhysical"       "2"               // Physical protection.
 
-    "AttackDamageMin"     "70"                 // Damage range min.
-    "AttackDamageMax"     "77"                 // Damage range max.
+    "AttackDamageMin"     	"70"                 // Damage range min.
+    "AttackDamageMax"     	"77"                 // Damage range max.
+    "AttackRate"			"3.0"		// BAT
+    "AttackRange"      		"500"     // Range within a target can be attacked.
 
     "AttributeBaseStrength"   "16"                  // Base strength
     "AttributeStrengthGain"   "1.5"                   // Strength bonus per level.
