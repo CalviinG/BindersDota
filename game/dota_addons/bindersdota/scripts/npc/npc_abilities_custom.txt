@@ -373,14 +373,14 @@
     // General
     "BaseClass"                 "ability_datadriven"
     "AbilityTextureName"        "skywrath_mage_concussive_shot"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
     "MaxLevel"                  "3"
 
     // Behavior
     "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
@@ -458,14 +458,14 @@
     // General
     "BaseClass"                 "ability_datadriven"
     "AbilityTextureName"        "skywrath_mage_arcane_bolt"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
     "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
     "MaxLevel"                  "3"
 
     // Behavior
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
@@ -970,7 +970,7 @@
   	"MaxLevel" 						"4"
 
   	// Behavior
-  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+  	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
   	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
   	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
   	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -978,7 +978,7 @@
   	// Stats
   	"AbilityManaCost"       "90 100 110 120"
     "AbilityCooldown"       "16"
-    "AbilityCastRange"		"750"
+    "AoERadius"				"750"
 
     "AbilityChannelTime"    "0.0"
     "AbilityCastPoint"      "0.3"
@@ -1257,35 +1257,35 @@
     // Modifiers
     "Modifiers"
     {
-      "modifier_absolute_zero"
-      {
-        "IsHidden"    	"1"
-        "Passive" 		"1"
+	 	"modifier_absolute_zero"
+	 	{
+	    	"IsHidden"    	"1"
+	        "Passive" 		"1"
 
-        "Aura"			"modifier_absolute_zero_aura"
-        "Aura_Radius"	"%radius"
-        "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_NONE"
-      }
+	        "Aura"			"modifier_absolute_zero_aura"
+	        "Aura_Radius"	"%radius"
+	        "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_NONE"
+		}
 
-      "modifier_absolute_zero_aura"
-      {
-      	"IsHidden"		"1"
-      	"IsDebuff"		"1"
+		"modifier_absolute_zero_aura"
+	  	{
+	      	"IsHidden"		"1"
+	      	"IsDebuff"		"1"
 
-		"ThinkInterval"  		"%stack_up_time"
-      	"OnIntervalThink"
-    	{
-    		"RunScript"
-			{
-				"ScriptFile"				"abilities/celsius_absolute_zero.lua"
-				"Function"					"apply_debuff"
-				"debuff_duration"			"%slow_duration"
-				"max_stacks"				"%max_stacks"
-			}
-    	}
-      }
+			"ThinkInterval"  		"%stack_up_time"
+	      	"OnIntervalThink"
+	    	{
+	    		"RunScript"
+				{
+					"ScriptFile"				"abilities/celsius_absolute_zero.lua"
+					"Function"					"apply_debuff"
+					"debuff_duration"			"%slow_duration"
+					"max_stacks"				"%max_stacks"
+				}
+	    	}
+	   	}
 
 		"modifier_absolute_zero_base"
 		{
@@ -1304,6 +1304,111 @@
 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%as_slow"
 			}
 		}
+    }
+  } 
+
+  // ==========================
+  // Shatter
+  // ==========================
+  "celsius_shatter"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "jakiro_ice_path"
+    "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+    "MaxLevel"                  "3"
+
+    // Behavior
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+  	"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+  	"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+  	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+
+ 	// Stats
+  	"AbilityManaCost"				"200 300 400"
+    "AbilityCooldown"               "100 80 60"
+    "AoERadius"             		"700"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.3"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "base_ms"            	"340"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+       	"dmg_multiplier"      	"10 12.5 15"
+   	  }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"     	 		"700"
+      }
+    }
+
+    // Precache
+    "precache"
+	{
+		"soundfile"		"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+		"particle"		"particles/status_fx/status_effect_frost_lich.vpcf"
+		"particle"      "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf"
+		"particle"      "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_explode.vpcf"
+	}
+
+  	 // Data Driven
+    "OnSpellStart"
+    {
+    	"ApplyModifier"
+    	{
+    		"Target"        
+    		{
+    			"Center" "CASTER"
+    			"Radius" "%radius"
+    			"Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    			"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    		}
+    		"ModifierName"	"shatter_fx"
+    		"Duration"		"2"
+    	}
+    	"ApplyModifier"
+    	{
+    		"ModifierName"	"shatter_cast_fx"
+    		"Target" 		"CASTER"
+    		"Duration"		"2"
+    	}
+    	"RunScript"
+    	{
+    		"ScriptFile"	"abilities/celsius_shatter.lua"
+    		"Function"		"Shatter"
+    	}	
+    	"FireSound"
+		{
+			"EffectName"	"Hero_Invoker.ColdSnap.Cast"
+			"Target" 		"CASTER"
+		}
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+    	"shatter_fx"
+    	{
+			"EffectName"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf"
+			"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
+			"StatusEffectPriority"	"10"
+    	}
+    	"shatter_cast_fx"
+    	{
+    		"IsHidden"			"1"
+    		"EffectName"        "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf"
+    	}
     }
   }
 }

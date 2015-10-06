@@ -67,7 +67,7 @@
     "Ability1"        "celsius_hailstorm" 
     "Ability2"        "celsius_icebrand" 
     "Ability3"        "celsius_absolute_zero" 
-    "Ability4"        ""
+    "Ability4"        "celsius_shatter"
     "ArmorPhysical"       "-2"               // Physical protection.
 
     "AttackDamageMin"     "16"                 // Damage range min.

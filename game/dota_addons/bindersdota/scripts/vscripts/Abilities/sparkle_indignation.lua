@@ -10,7 +10,7 @@ function indignation_start(keys)
 	if ability_indignation_bolt ~= nil then
 		ability.damage = ability_indignation_bolt:GetAbilityDamage()
 	else
-		ability.damage = 1000
+		ability.damage = 10
 	end
 
 	ability.radius = ability:GetLevelSpecialValueFor("radius", ability:GetLevel() - 1)
