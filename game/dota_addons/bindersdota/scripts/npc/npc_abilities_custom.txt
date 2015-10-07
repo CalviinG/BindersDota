@@ -816,7 +816,7 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "dodge_bonus"           "10 20 25 30"
+                "dodge_bonus"           "15 20 25 30"
             }
         }
         "Modifiers"
