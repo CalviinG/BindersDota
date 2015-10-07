@@ -816,7 +816,7 @@
             "01"
             {
                 "var_type"              "FIELD_INTEGER"
-                "dodge_bonus"           "10 20 25 30"
+                "dodge_bonus"           "15 20 25 30"
             }
         }
         "Modifiers"
@@ -1411,5 +1411,380 @@
     	}
     }
   }
+
+  // ==========================
+  // Hero
+  // Roza Shanina
+  // ==========================
+
+  // ==========================
+  // Recklessness
+  // ==========================
+  "roza_shanina_recklessness"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "mirana_invis"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+ 	// Stats
+  	"AbilityManaCost"				"80"
+    "AbilityCooldown"               "10"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.3"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "as_bonus"            	"35 45 55 65"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+       	"duration"      	"3 4 5 6"
+   	  }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "damage_taken_bonus"  	"25"
+      }
+    }
+
+    // Precache
+    "precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+		"particle"			"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
+		"particle"			"particles/status_fx/status_effect_gods_strength.vpcf"
+	}
+
+  	 // Data Driven
+    "OnSpellStart"
+    {
+    	"FireSound"
+		{
+			"EffectName"		"Hero_Sven.GodsStrength"
+			"Target"			"CASTER"
+		}
+
+		"FireEffect"
+		{
+			"EffectName"		"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
+			"EffectAttachType"	"follow_origin"
+			"Target"			"CASTER"
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"		"modifier_recklessness"
+			"Target"			"CASTER"
+		}
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+    	"modifier_recklessness"
+		{
+			"IsBuff"				"1"
+			"IsPurgable"			"0"
+			"Duration"				"%duration"
+
+			"StatusEffectName"		"particles/status_fx/status_effect_gods_strength.vpcf"
+			"StatusEffectPriority"	"10"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%as_bonus"
+				"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" 	"%damage_taken_bonus"
+			}
+		}
+    }
+  }
+
+  // ==========================
+  // Bullseye
+  // ==========================
+  "roza_shanina_bullseye"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "mirana_arrow"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+
+    // Special
+    "AbilitySpecial"
+    {
+		"01"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"crit_chance"					"3 5 7 9"
+		}
+		"02"
+		{
+			"var_type"						"FIELD_INTEGER"
+			"crit_damage"					"325"
+		}
+    }
+
+    // Precache
+    "precache"
+	{
+		"soundfile"		"soundevents/game_sounds_heroes/game_sounds_chaos_knight.vsndevts"
+		"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_weapon_blur_critical.vpcf"
+	}
+
+    // Modifiers
+    "Modifiers"
+    {
+    	"modifier_bullseye"
+		{
+		    "Passive"   "1"
+		    "IsHidden"  "1"
+
+		    "OnAttackStart"
+		    {
+		        "RemoveModifier"
+		        {
+		            "ModifierName" 	"modifier_bullseye_crit"
+		            "Target" 		"CASTER"
+		        }
+
+		        "Random"
+		        {
+		            "Chance" 	"%crit_chance"
+		            "OnSuccess"
+		            {
+		                "ApplyModifier"
+		                {
+		                    "ModifierName" 	"modifier_bullseye_crit"
+		                    "Target"    	"CASTER"    
+		                }  
+		            }
+		        }
+		    }
+		}
+
+		"modifier_bullseye_crit"
+		{
+		    "IsHidden"  "1"
+		    "Properties"
+		    {
+		        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_damage"
+		    }
+
+		    "OnAttackLanded"
+		    {
+		        "RemoveModifier"
+		        {
+		            "ModifierName"  "modifier_bullseye_crit"
+		            "Target"   		"CASTER"    
+		        }
+		    }
+		}
+	}
+  }
+
+  	"roza_shanina_true_sniper"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"drow_ranger_marksmanship"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_attack_range"			"100 200 300 400"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_take_aim_datadriven"
+			{
+				"Passive"			"1"
+				"IsPurgable"		"0"
+				"IsHidden"			"1"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%bonus_attack_range"
+				}
+			}
+		}
+	}
+
+  // ==========================
+  // The Unseen Terror
+  // ==========================
+  "roza_shanina_the_unseen_terror"
+	{
+	    // General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"mirana_starfall"
+		"AbilityType"               	"DOTA_ABILITY_TYPE_ULTIMATE"
+    	"MaxLevel"                  	"3"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
+			"particle"					"particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf"	
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1300"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastAnimation" 			"ACT_DOTA_VICTORY"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"100"
+		"AbilityChannelTime"			"3 5 7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200 300 400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fire_interval"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"nr_of_arrows"			"3 5 7"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arrow_damage"			"150"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"msas_slow"				"-25 -35 -45"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"3.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"75"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1300"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"1300"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"abilities/roza_shanina_the_unseen_terror.lua"
+				"Function"				"TheUnseenTerrorInitialize"
+				"dummy_modifier"		"modifier_spirit_form_illuminate_dummy_datadriven"
+				"dummy_modifier_invis"	"modifier_spirit_form_illuminate_dummy_datadriven_invis"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/roza_shanina_the_unseen_terror.lua"
+				"Function"		"TheUnseenTerrorProjectileHit"
+			}		
+		}
+
+		"Modifiers"
+		{
+			"modifier_spirit_form_illuminate_dummy_datadriven"
+			{
+				"OnCreated"
+				{
+							
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/roza_shanina_the_unseen_terror.lua"
+						"Function"		"TheUnseenTerrorFire"
+					}
+				}			
+			}
+
+			"modifier_spirit_form_illuminate_dummy_datadriven_invis"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
+				}			
+			}
+
+			"modifier_unseen_terror_slow"
+			{
+				"Duration"				"%slow_duration"
+				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%msas_slow"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%msas_slow"
+				}			
+			}
+		}
+	}
 }
 

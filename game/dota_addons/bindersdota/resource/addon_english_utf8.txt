@@ -1,0 +1,244 @@
+﻿"lang"
+{
+	"Language"		"English"
+	"Tokens"
+	{		
+		"game_mode_15"				"Binders"
+		"addon_game_name"			"Binders"
+		
+		//"DOTA_Basics"							"ABILITIES"
+		//"DOTA_Upgrades"							"ITEMS"
+		//"DOTA_Shop_Category_Basics"				"ABILITIES"
+		//"DOTA_Shop_Category_Upgrades"			"ITEMS"
+		
+		// ******************** HEROES ********************
+
+		"npc_dota_hero_enchantress" 	"Sparkle"
+		"npc_dota_hero_naga_siren" 		"Vapora"
+		"npc_dota_hero_chaos_knight" 	"Tormentor"
+		"npc_dota_hero_crystal_maiden" 	"Celsius"
+		"npc_dota_hero_phoenix" 		"Icarus"
+		"npc_dota_hero_axe" 			"Garros"
+		"npc_dota_hero_omniknight" 		"Templar"
+		"npc_dota_hero_mirana" 			"Roza Shanina"
+		"npc_dota_hero_ember_spirit"	"Flamebender"
+
+
+		// ******************** ABILITIES ********************
+
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope"  "Glimmer of Hope"  
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope_Description"  "Create a light at target location, detonating after 3 seconds to heal every unit in an area."  
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope_Lore"  "The light of a dryad can help even the most hopeless person get back on their feet."  
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope_heal"  "Heal Amount:"  
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope_radius"  "Radius:"  
+
+  		"DOTA_Tooltip_Ability_sparkle_will_to_live"  "Will to Live"  
+		"DOTA_Tooltip_Ability_sparkle_will_to_live_Description"  "Inspire target unit, giving it increasing dodge chance for every second."  
+		"DOTA_Tooltip_Ability_sparkle_will_to_live_Lore"  "The watchful eye of Sparkle makes her allies fight even harder to live another day."  
+		"DOTA_Tooltip_Ability_sparkle_will_to_live_duration"  "Duration:"  
+		"DOTA_Tooltip_Ability_sparkle_will_to_live_dodge_per_second"  "Dodge per Second:"  
+
+  		"DOTA_Tooltip_Ability_sparkle_grace"  "Grace"  
+		"DOTA_Tooltip_Ability_sparkle_grace_Description"  "After not taking damage for a while Sparkle gains increased movement speed and mana regeneration."  
+		"DOTA_Tooltip_Ability_sparkle_grace_Lore"  "When in her rhythm the grace of Sparkle allows her to do wonderful things."  
+		"DOTA_Tooltip_Ability_sparkle_grace_break_time"  "Break Time:"  
+		"DOTA_Tooltip_Ability_sparkle_grace_movement_speed_bonus"  "Movement Speed:"
+		"DOTA_Tooltip_Ability_sparkle_grace_mana_regen_bonus"  "Mana Regen:"
+
+  		"DOTA_Tooltip_Ability_sparkle_indignation"  "Indignation"  
+		"DOTA_Tooltip_Ability_sparkle_indignation_Description"  "Launches deadly bolts of energy towards the nearest target over time, dealing splash damage to everyone in the area."  
+		"DOTA_Tooltip_Ability_sparkle_indignation_Lore"  "Not all dryad magic is of the fluffy cuddly kind."  
+		"DOTA_Tooltip_Ability_sparkle_indignation_damage_tooltip"  "Damage:"
+		"DOTA_Tooltip_Ability_sparkle_indignation_damage_radius_tooltip"  "Damage Radius:"
+		"DOTA_Tooltip_Ability_sparkle_indignation_radius"  "Search Radius:"  
+		"DOTA_Tooltip_Ability_sparkle_indignation_bolts"  "Number of Bolts:"
+		"DOTA_Tooltip_Ability_sparkle_indignation_bolt_interval"  "Bolt Interval:"
+		"DOTA_Tooltip_Ability_sparkle_indignation_duration_tooltip"  "Duration:"
+
+
+				// ******************** ABILITY MODIFIERS ********************
+
+		"DOTA_Tooltip_dodge_buff" 														  "Will to Live"
+		"DOTA_Tooltip_dodge_buff_description" 											  "Gaining increasing dodge chance"
+
+		"DOTA_Tooltip_heal_incoming_fx"                                                   "Heal Incoming Fx"
+		"DOTA_Tooltip_heal_incoming_fx_Description"                                       ""
+
+		"DOTA_Tooltip_heal_done_fx"                                                       "Heal Done Fx"
+		"DOTA_Tooltip_heal_done_fx_Description"                                           ""
+
+		"DOTA_Tooltip_modifier_grace_active"                                              "Grace Active"
+		"DOTA_Tooltip_modifier_grace_active_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_vapora_rip_tide"                                           "Vapora Rip Tide"
+		"DOTA_Tooltip_modifier_vapora_rip_tide_Description"                               ""
+
+		"DOTA_Tooltip_vapora_flood_thinker"                                               "Vapora Flood Thinker"
+		"DOTA_Tooltip_vapora_flood_thinker_Description"                                   ""
+
+		"DOTA_Tooltip_create_vapora_flood_attackspeed_reduction_aura"                     "Create Vapora Flood Attackspeed Reduction Aura"
+		"DOTA_Tooltip_create_vapora_flood_attackspeed_reduction_aura_Description"         ""
+
+		"DOTA_Tooltip_modifier_hailstorm_debuff"                                          "Hailstorm Debuff"
+		"DOTA_Tooltip_modifier_hailstorm_debuff_Description"                              ""
+
+		"DOTA_Tooltip_icebrand_buff"                                                      "Icebrand Buff"
+		"DOTA_Tooltip_icebrand_buff_Description"                                          ""
+
+		"DOTA_Tooltip_modifier_absolute_zero_stack"                                       "Absolute Zero Stack"
+		"DOTA_Tooltip_modifier_absolute_zero_stack_Description"                           ""
+
+		"DOTA_Tooltip_shatter_fx"                                                         "Shatter Fx"
+		"DOTA_Tooltip_shatter_fx_Description"                                             ""
+
+		"DOTA_Tooltip_modifier_recklessness"                                              "Recklessness"
+		"DOTA_Tooltip_modifier_recklessness_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_spirit_form_illuminate_dummy_datadriven"                   "Spirit Form Illuminate Dummy Datadriven"
+		"DOTA_Tooltip_modifier_spirit_form_illuminate_dummy_datadriven_Description"       ""
+
+		"DOTA_Tooltip_modifier_spirit_form_illuminate_dummy_datadriven_invis"             "Spirit Form Illuminate Dummy Datadriven Invis"
+		"DOTA_Tooltip_modifier_spirit_form_illuminate_dummy_datadriven_invis_Description"		""
+
+		"DOTA_Tooltip_modifier_unseen_terror_slow"                                        "Unseen Terror Slow"
+		"DOTA_Tooltip_modifier_unseen_terror_slow_Description"                            ""
+
+
+
+		// ******************** ABILITIES ********************
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope"  "Glimmer of Hope"  
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope_Description"  "Create a light at target location, detonating after 3 seconds to heal every unit in an area."  
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope_Lore"  "The light of a dryad can help even the most hopeless person get back on their feet."  
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope_heal"  "HEAL AMOUNT:"  
+		"DOTA_Tooltip_Ability_sparkle_glimmer_of_hope_radius"  "RADIUS:"  
+
+  		"DOTA_Tooltip_Ability_sparkle_will_to_live"  "Will to Live"  
+		"DOTA_Tooltip_Ability_sparkle_will_to_live_Description"  "Inspire target unit, giving it increasing dodge chance for every second."  
+		"DOTA_Tooltip_Ability_sparkle_will_to_live_Lore"  "The watchful eye of Sparkle makes her allies fight even harder to live another day."  
+		"DOTA_Tooltip_Ability_sparkle_will_to_live_duration"  "DURATION:"  
+		"DOTA_Tooltip_Ability_sparkle_will_to_live_dodge_per_second"  "DODGE PER SECOND:"  
+
+  		"DOTA_Tooltip_Ability_sparkle_grace"  "Grace"  
+		"DOTA_Tooltip_Ability_sparkle_grace_Description"  "After not taking damage for a while Sparkle gains increased movement speed and mana regeneration."  
+		"DOTA_Tooltip_Ability_sparkle_grace_Lore"  "When in her rhythm the grace of Sparkle allows her to do wonderful things."  
+		"DOTA_Tooltip_Ability_sparkle_grace_break_time"  "BREAK TIME:"  
+		"DOTA_Tooltip_Ability_sparkle_grace_movement_speed_bonus"  "MOVEMENT SPEED:"
+		"DOTA_Tooltip_Ability_sparkle_grace_mana_regen_bonus"  "MANA REGENERATION:"
+
+  		"DOTA_Tooltip_Ability_sparkle_indignation"  "Indignation"  
+		"DOTA_Tooltip_Ability_sparkle_indignation_Description"  "Launches deadly bolts of energy towards the nearest target over time, dealing splash damage to everyone in the area."  
+		"DOTA_Tooltip_Ability_sparkle_indignation_Lore"  "Not all dryad magic is of the fluffy cuddly kind."  
+		"DOTA_Tooltip_Ability_sparkle_indignation_damage_tooltip"  "DAMAGE:"
+		"DOTA_Tooltip_Ability_sparkle_indignation_damage_radius_tooltip"  "DAMAGE RADIUS:"
+		"DOTA_Tooltip_Ability_sparkle_indignation_radius"  "SEARCH RADIUS:"  
+		"DOTA_Tooltip_Ability_sparkle_indignation_bolts"  "NUMBER OF BOLS:"
+		"DOTA_Tooltip_Ability_sparkle_indignation_bolt_interval"  "BOLT INTERVAL:"
+		"DOTA_Tooltip_Ability_sparkle_indignation_duration_tooltip"  "DURATION:"
+
+		// Hidden ability, keep tooltip simple
+		"DOTA_Tooltip_ability_sparkle_indignation_bolt"                                   "Sparkle Indignation Bolt"
+		"DOTA_Tooltip_ability_sparkle_indignation_bolt_Description"                       ""
+		"DOTA_Tooltip_ability_sparkle_indignation_bolt_Lore"                              ""
+		"DOTA_Tooltip_ability_sparkle_indignation_bolt_launch_radius"                     "LAUNCH RADIUS:"
+		"DOTA_Tooltip_ability_sparkle_indignation_bolt_damage_radius"                     "DAMAGE RADIUS:"
+		"DOTA_Tooltip_ability_sparkle_indignation_bolt_speed"                             "SPEED:"
+		"DOTA_Tooltip_ability_sparkle_indignation_bolt_damage"                            "DAMAGE:"
+
+		"DOTA_Tooltip_ability_vapora_rip_tide"                                            "Vapora Rip Tide"
+		"DOTA_Tooltip_ability_vapora_rip_tide_Description"                                ""
+		"DOTA_Tooltip_ability_vapora_rip_tide_Lore"                                       ""
+		"DOTA_Tooltip_ability_vapora_rip_tide_armor_reduction"                            "ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_vapora_rip_tide_radius"                                     "RADIUS:"
+		"DOTA_Tooltip_ability_vapora_rip_tide_duration"                                   "DURATION:"
+
+		"DOTA_Tooltip_ability_vapora_flood"                                               "Vapora Flood"
+		"DOTA_Tooltip_ability_vapora_flood_Description"                                   ""
+		"DOTA_Tooltip_ability_vapora_flood_Lore"                                          ""
+		"DOTA_Tooltip_ability_vapora_flood_radius"                                        "RADIUS:"
+		"DOTA_Tooltip_ability_vapora_flood_duration"                                      "DURATION:"
+		"DOTA_Tooltip_ability_vapora_flood_damage"                                        "DAMAGE:"
+		"DOTA_Tooltip_ability_vapora_flood_attackspeed_reduction"                         "ATTACKSPEED REDUCTION:"
+		"DOTA_Tooltip_ability_vapora_flood_tick_rate"                                     "TICK RATE:"
+
+		"DOTA_Tooltip_ability_vapora_as_water"                                            "Vapora As Water"
+		"DOTA_Tooltip_ability_vapora_as_water_Description"                                ""
+		"DOTA_Tooltip_ability_vapora_as_water_Lore"                                       ""
+		"DOTA_Tooltip_ability_vapora_as_water_dodge_bonus"                                "DODGE BONUS:"
+
+		"DOTA_Tooltip_ability_vapora_reflection"                                          "Vapora Reflection"
+		"DOTA_Tooltip_ability_vapora_reflection_Description"                              ""
+		"DOTA_Tooltip_ability_vapora_reflection_Lore"                                     ""
+		"DOTA_Tooltip_ability_vapora_reflection_illusion_duration"                        "ILLUSION DURATION:"
+		"DOTA_Tooltip_ability_vapora_reflection_illusion_outgoing_damage"                 "ILLUSION OUTGOING DAMAGE:"
+		"DOTA_Tooltip_ability_vapora_reflection_illusion_outgoing_tooltip"                "ILLUSION OUTGOING TOOLTIP:"
+		"DOTA_Tooltip_ability_vapora_reflection_illusion_incoming_damage"                 "ILLUSION INCOMING DAMAGE:"
+		"DOTA_Tooltip_ability_vapora_reflection_illusion_incoming_tooltip"                "ILLUSION INCOMING TOOLTIP:"
+		"DOTA_Tooltip_ability_vapora_reflection_invuln_duration"                          "INVULN DURATION:"
+
+		"DOTA_Tooltip_ability_celsius_hailstorm"                                          "Celsius Hailstorm"
+		"DOTA_Tooltip_ability_celsius_hailstorm_Description"                              ""
+		"DOTA_Tooltip_ability_celsius_hailstorm_Lore"                                     ""
+		"DOTA_Tooltip_ability_celsius_hailstorm_damage"                                   "DAMAGE:"
+		"DOTA_Tooltip_ability_celsius_hailstorm_ms_slow"                                  "MS SLOW:"
+		"DOTA_Tooltip_ability_celsius_hailstorm_ms_duration"                              "MS DURATION:"
+		"DOTA_Tooltip_ability_celsius_hailstorm_search_radius"                            "SEARCH RADIUS:"
+		"DOTA_Tooltip_ability_celsius_hailstorm_novas"                                    "NOVAS:"
+		"DOTA_Tooltip_ability_celsius_hailstorm_nova_radius"                              "NOVA RADIUS:"
+
+		"DOTA_Tooltip_ability_celsius_icebrand"                                           "Celsius Icebrand"
+		"DOTA_Tooltip_ability_celsius_icebrand_Description"                               ""
+		"DOTA_Tooltip_ability_celsius_icebrand_Lore"                                      ""
+		"DOTA_Tooltip_ability_celsius_icebrand_duration"                                  "DURATION:"
+		"DOTA_Tooltip_ability_celsius_icebrand_dmg_buff"                                  "DMG BUFF:"
+		"DOTA_Tooltip_ability_celsius_icebrand_as_slow"                                   "AS SLOW:"
+		"DOTA_Tooltip_ability_celsius_icebrand_ms_slow"                                   "MS SLOW:"
+		"DOTA_Tooltip_ability_celsius_icebrand_radius"                                    "RADIUS:"
+
+		"DOTA_Tooltip_ability_celsius_absolute_zero"                                      "Celsius Absolute Zero"
+		"DOTA_Tooltip_ability_celsius_absolute_zero_Description"                          ""
+		"DOTA_Tooltip_ability_celsius_absolute_zero_Lore"                                 ""
+		"DOTA_Tooltip_ability_celsius_absolute_zero_as_slow"                              "AS SLOW:"
+		"DOTA_Tooltip_ability_celsius_absolute_zero_ms_slow"                              "MS SLOW:"
+		"DOTA_Tooltip_ability_celsius_absolute_zero_max_stacks"                           "MAX STACKS:"
+		"DOTA_Tooltip_ability_celsius_absolute_zero_radius"                               "RADIUS:"
+		"DOTA_Tooltip_ability_celsius_absolute_zero_slow_duration"                        "SLOW DURATION:"
+		"DOTA_Tooltip_ability_celsius_absolute_zero_stack_up_time"                        "STACK UP TIME:"
+
+		"DOTA_Tooltip_ability_celsius_shatter"                                            "Celsius Shatter"
+		"DOTA_Tooltip_ability_celsius_shatter_Description"                                ""
+		"DOTA_Tooltip_ability_celsius_shatter_Lore"                                       ""
+		"DOTA_Tooltip_ability_celsius_shatter_base_ms"                                    "BASE MS:"
+		"DOTA_Tooltip_ability_celsius_shatter_dmg_multiplier"                             "DMG MULTIPLIER:"
+		"DOTA_Tooltip_ability_celsius_shatter_radius"                                     "RADIUS:"
+
+		"DOTA_Tooltip_ability_roza_shanina_recklessness"                                  "Roza Shanina Recklessness"
+		"DOTA_Tooltip_ability_roza_shanina_recklessness_Description"                      ""
+		"DOTA_Tooltip_ability_roza_shanina_recklessness_Lore"                             ""
+		"DOTA_Tooltip_ability_roza_shanina_recklessness_as_bonus"                         "AS BONUS:"
+		"DOTA_Tooltip_ability_roza_shanina_recklessness_duration"                         "DURATION:"
+		"DOTA_Tooltip_ability_roza_shanina_recklessness_damage_taken_bonus"               "DAMAGE TAKEN BONUS:"
+
+		"DOTA_Tooltip_ability_roza_shanina_bullseye"                                      "Roza Shanina Bullseye"
+		"DOTA_Tooltip_ability_roza_shanina_bullseye_Description"                          ""
+		"DOTA_Tooltip_ability_roza_shanina_bullseye_Lore"                                 ""
+		"DOTA_Tooltip_ability_roza_shanina_bullseye_crit_chance"                          "CRIT CHANCE:"
+		"DOTA_Tooltip_ability_roza_shanina_bullseye_crit_damage"                          "CRIT DAMAGE:"
+
+		"DOTA_Tooltip_ability_roza_shanina_true_sniper"                                   "Roza Shanina True Sniper"
+		"DOTA_Tooltip_ability_roza_shanina_true_sniper_Description"                       ""
+		"DOTA_Tooltip_ability_roza_shanina_true_sniper_Lore"                              ""
+		"DOTA_Tooltip_ability_roza_shanina_true_sniper_bonus_attack_range"                "BONUS ATTACK RANGE:"
+
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror"                             "Roza Shanina The Unseen Terror"
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_Description"                 ""
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_Lore"                        ""
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_fire_interval"               "FIRE INTERVAL:"
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_nr_of_arrows"                "NR OF ARROWS:"
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_arrow_damage"                "ARROW DAMAGE:"
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_msas_slow"                   "MSAS SLOW:"
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_slow_duration"               "SLOW DURATION:"
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_radius"                      "RADIUS:"
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_range"                       "RANGE:"
+		"DOTA_Tooltip_ability_roza_shanina_the_unseen_terror_speed"                       "SPEED:"
+	}
+}
