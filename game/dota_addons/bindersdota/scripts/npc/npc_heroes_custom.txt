@@ -97,11 +97,11 @@
     "Ability1"        "roza_shanina_recklessness" 
     "Ability2"        "roza_shanina_bullseye" 
     "Ability3"        "roza_shanina_true_sniper" 
-    "Ability4"        ""
+    "Ability4"        "roza_shanina_the_unseen_terror"
     "ArmorPhysical"       "2"               // Physical protection.
 
-    "AttackDamageMin"     	"70"                 // Damage range min.
-    "AttackDamageMax"     	"77"                 // Damage range max.
+    "AttackDamageMin"     	"80"                 // Damage range min.
+    "AttackDamageMax"     	"87"                 // Damage range max.
     "AttackRate"			"3.0"		// BAT
     "AttackRange"      		"500"     // Range within a target can be attacked.
 
