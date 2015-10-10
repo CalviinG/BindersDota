@@ -87,7 +87,7 @@
     "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
  }
 
-  // ==========================
+ // ==========================
  // Hero
  // Roza Shanina
  // ==========================
@@ -111,6 +111,62 @@
     "AttributeIntelligenceGain" "2.0"                   // Intelligence bonus per level.
     "AttributeBaseAgility"    "14"                   // Base agility
     "AttributeAgilityGain"    "2.1"                   // Agility bonus per level.
+
+    "MovementSpeed"       "320"                 // Speed.
+    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
+ }
+
+ // ==========================
+ // Hero
+ // Garros
+ // ==========================
+ "npc_dota_hero_garros"
+ {
+    "override_hero"   "npc_dota_hero_axe"
+    "Ability1"        "garros_bulls_strength" 
+    "Ability2"        "garros_tornado" 
+    "Ability3"        "garros_pumped_up" 
+    "Ability4"        "garros_warlords_banner"
+    "ArmorPhysical"       "2"               // Physical protection.
+
+    "AttackDamageMin"     	"19"                 // Damage range min.
+    "AttackDamageMax"     	"25"                 // Damage range max.
+
+    "AttributeBaseStrength"   "28"                  // Base strength
+    "AttributeStrengthGain"   "3.5"                   // Strength bonus per level.
+    "AttributeBaseIntelligence" "14"                   // Base intelligence
+    "AttributeIntelligenceGain" "2.1"                   // Intelligence bonus per level.
+    "AttributeBaseAgility"    "13"                   // Base agility
+    "AttributeAgilityGain"    "1.7"                   // Agility bonus per level.
+
+    "MovementSpeed"       "320"                 // Speed.
+    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
+ }
+
+ // ==========================
+ // Hero
+ // Ella
+ // ==========================
+ "npc_dota_hero_ella"
+ {
+    "override_hero"   "npc_dota_hero_legion_commander"
+    "Ability1"        "ella_rain_of_arrows" 
+    "Ability2"        "ella_focused_attacks" 
+    "Ability3"        "" 
+    "Ability4"        ""
+    "ArmorPhysical"       "4"               // Physical protection.
+
+    "AttackDamageMin"     	"35"                 // Damage range min.
+    "AttackDamageMax"     	"41"                 // Damage range max.
+
+    "AttributeBaseStrength"   "25"                  // Base strength
+    "AttributeStrengthGain"   "2.9"                   // Strength bonus per level.
+    "AttributeBaseIntelligence" "19"                   // Base intelligence
+    "AttributeIntelligenceGain" "2.2"                   // Intelligence bonus per level.
+    "AttributeBaseAgility"    "16"                   // Base agility
+    "AttributeAgilityGain"    "1.5"                   // Agility bonus per level.
 
     "MovementSpeed"       "320"                 // Speed.
     "VisionDaytimeRange"    "1800"                  // Range of vision at night time.

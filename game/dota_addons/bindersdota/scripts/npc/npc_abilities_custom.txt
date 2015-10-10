@@ -1786,5 +1786,607 @@
 			}
 		}
 	}
+
+  // ==========================
+  // Hero
+  // Garros
+  // ==========================
+
+  // ==========================
+  // Bull's Strength 
+  // ==========================
+  "garros_bulls_strength"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "sven_gods_strength"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"	
+
+ 	// Stats
+  	"AbilityManaCost"				"75"
+    "AbilityCooldown"               "15"
+    "AbilityCastRange"				"650"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.3"
+    "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_damage"      	"35 45 55 65"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+       	"cleave_radius"      	"200"
+   	  }
+      "03"
+	  {
+		"var_type"				"FIELD_INTEGER"
+		"cleave_damage_pct"		"40"
+	  }
+	  "04"
+	  {
+		"var_type"				"FIELD_INTEGER"
+		"duration"				"5"
+	  }
+    }
+
+    // Precache
+    "precache"
+	{
+		"particle"  	"particles/units/heroes/hero_sven/sven_warcry_buff.vpcf"
+		"particle"  	"particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+		"soundfile"		"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+	}
+
+  	 // Data Driven
+    "OnSpellStart"
+    {
+    	"FireSound"
+    	{
+    		"EffectName"	"Hero_LegionCommander.PressTheAttack"
+    		"Target" 		"TARGET"
+    	}
+		"ApplyModifier"
+		{
+			"ModifierName"		"modifier_bulls_strength"
+			"Target"			"TARGET"
+		}
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+    	"modifier_bulls_strength"
+		{
+			"IsBuff"				"1"
+			"IsPurgable"			"0"
+			"Duration"				"%duration"
+
+			"EffectName"	"particles/units/heroes/hero_sven/sven_warcry_buff.vpcf"
+			"EffectAttachType"	"follow_origin"
+
+			"OnAttackLanded"
+			{
+				"Heal"
+				{
+					"Target"        "TARGET"
+					"HealAmount"	"%attack_damage * cleave_damage_pct/100"
+				}
+             	"Damage"
+              	{
+                	"Target"
+	            	{
+	                 	"Center"    "TARGET"
+	                  	"Radius"    "%cleave_radius"
+	                  	"Teams"   	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                  	"Type"      "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	                  	"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	              	}
+                  	"Type"			"DAMAGE_TYPE_PURE"
+                 	"Damage"		"%attack_damage * cleave_damage_pct/100"
+              	}
+			}
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%bonus_damage"
+			}
+		}
+    }
+  }
+
+  // ==========================
+  // Tornado
+  // ==========================
+  "garros_tornado"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "axe_counter_helix"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"	
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+ 	// Stats
+  	"AbilityManaCost"				"110"
+    "AbilityCooldown"               "15"
+    "AoERadius"						"%radius"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.0"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"      			"275"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_FLOAT"
+       	"slow"      			"-10 -15 -20 -25"
+   	  }
+      "03"
+	  {
+		"var_type"				"FIELD_INTEGER"
+		"slow_duration"			"3"
+	  }
+    }
+
+    // Precache
+    "precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+		"particle"			"particles/units/heroes/hero_axe/axe_attack_blur_counterhelix.vpcf"
+	}
+
+  	 // Data Driven
+    "OnSpellStart"
+    {
+    	"FireSound"
+		{
+			"EffectName"	"Hero_Axe.CounterHelix"
+			"Target" 		"CASTER"
+		}
+
+		"ActOnTargets"
+		{
+			"Target"
+			{
+				"Center"  	"CASTER"
+				"Radius" 	"%radius"
+				"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+			}
+		
+			"Action"    
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_tornado_maim"
+					"Target" 		"TARGET"
+					"Duration"		"%slow_duration"
+				}
+			}
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"	"modifier_tornado_rotate"
+			"Target" 		"CASTER"
+			"Duration"		"0.15"
+		}
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+    	"modifier_tornado_rotate"
+		{
+			"IsHidden"	"1"
+			"EffectName"	"particles/units/heroes/hero_axe/axe_attack_blur_counterhelix.vpcf"
+			"EffectAttachType"	"follow_origin"	
+
+			"ThinkInterval"  "0.03"
+			"OnIntervalThink"
+			{
+				"Rotate"
+				{
+					"Target"	"CASTER"
+					"PitchYawRoll"	"0 72 0"
+				}
+			}
+		}
+		"modifier_tornado_maim"
+		{
+		
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%slow" 
+			}
+		}
+
+    }
+  }
+
+  // ==========================
+  // Pumped Up
+  // ==========================
+  "garros_pumped_up"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "lina_fiery_soul"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+  	"AoERadius"						"900"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "health_bonus"        	"70 140 210 280"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+       	"hp_regen"            	"1 2 3 4"
+   	  }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"     	 		"900"
+      }
+    }
+
+    // Modifiers
+    "Modifiers"
+    {
+	 	"modifier_pumped_up"
+	 	{
+	    	"IsHidden"    	"1"
+	        "Passive" 		"1"
+
+	        "Aura"			"modifier_pumped_up_aura"
+	        "Aura_Radius"	"%radius"
+	        "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+			"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_NONE"
+		}
+
+		"modifier_pumped_up_aura"
+	  	{
+	      	"Properties"
+			{
+				"MODIFIER_PROPERTY_HEALTH_BONUS"			"%health_bonus"
+				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%hp_regen"
+			}
+	   	}
+    }
+  } 
+
+  // ==========================
+  // Warlords Banner
+  // ==========================
+  "garros_warlords_banner"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "legion_commander_duel"
+    "AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+    "MaxLevel"                  "3"
+
+    // Behavior
+    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+	// Stats
+  	"AbilityManaCost"				"180"
+    "AbilityCooldown"               "120 110 100"
+    "AbilityCastRange"				"300"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.3"
+  	"AoERadius"						"400"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "as_bonus"        		"20 30 40"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+       	"banner_duration"       "20"
+   	  }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"     	 		"400"
+      }
+    }
+
+    "OnSpellStart"
+	{
+		"SpawnUnit"
+		{
+			"UnitName"		"npc_dota_witch_doctor_death_ward"
+			"Target" 		"POINT"
+			"Duration"		"%banner_duration"
+			"UnitCount"		"1"
+			"GrantsGold"	"0"
+			"GrantsXP"		"0"
+			"SpawnRadius"	"10"
+			"OnSpawn"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_warlords_banner"
+					"Target"		"TARGET"
+					"Duration"		"%banner_duration"
+				}
+			}
+		}
+	}
+
+    // Modifiers
+    "Modifiers"
+    {
+		"modifier_warlords_banner_aura"
+	  	{
+	  		"IsHidden"    	"0"
+
+	      	"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"%as_bonus"
+			}
+	   	}
+
+	   	"modifier_warlords_banner"
+	   	{
+	   		"IsHidden"    	"1"
+	   		"Aura"			"modifier_warlords_banner_aura"
+	        "Aura_Radius"	"%radius"
+	        "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+			"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_NONE"
+	   		"States"
+			{
+				"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
+			}	
+	   	}
+    }
+  } 
+
+  // ==========================
+  // Hero
+  // Ella
+  // ==========================
+
+  // ==========================
+  // Rain of Arrows
+  // ==========================
+  "ella_rain_of_arrows"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "legion_commander_overwhelming_odds"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+	// Stats
+  	"AbilityManaCost"				"100"
+    "AbilityCooldown"               "14"
+    "AbilityCastRange"				"700"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.3"
+  	"AoERadius"						"330"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "damage"        		"140 200 260 320"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+       	"root_duration"       	"2"
+   	  }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"     	 		"330"
+      }
+    }
+
+    // Precache
+    "precache"
+	{
+		"soundfile"		"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+		"particle"		"particles/units/heroes/hero_legion_commander/legion_commander_odds.vpcf"
+		"particle"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_ring.vpcf"
+	}
+
+    "OnSpellStart"
+	{
+		"CreateThinker"
+    	{
+    		"ModifierName"	"rain_of_arrows_fx"
+    		"Target" 		"POINT"
+    	}
+		"FireSound"
+		{
+			"EffectName"	"Hero_LegionCommander.Overwhelming.Cast"
+			"Target" 		"TARGET"
+		}
+		"ActOnTargets"
+		{
+			"Target"
+            {
+                "Center" "POINT"
+                "Radius" "%radius"
+                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+            }
+
+            "Action"
+            {
+            	"Damage"
+            	{
+            		"Target"	"TARGET"
+            		"Type"		"DAMAGE_TYPE_MAGICAL"
+            		"Damage"	"%damage"
+            	}
+
+            	"ApplyModifier"
+            	{
+            		"ModifierName"	"modifier_rain_of_arrows_root"
+            		"Target"		"TARGET"
+            		"Duration"		"%root_duration"
+            	}		            	
+            }
+		}	
+	}
+
+    // Modifiers
+    "Modifiers"
+    {
+		"modifier_rain_of_arrows_root"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"1"
+		
+			"EffectName"			"particles/units/heroes/hero_legion_commander/legion_commander_odds.vpcf"
+			"EffectAttachType"		"follow_origin"
+		
+			"States"
+			{
+				"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_DISABLED"
+			}
+		}
+
+		"rain_of_arrows_fx"
+    	{
+    		"Duration" "1"
+    		"OnCreated"
+            {
+                "AttachEffect"
+                {
+		    		"EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_ring.vpcf"
+		    		"EffectAttachType"	"follow_origin"
+		    
+		    		"Target" "TARGET"
+    			}
+    		}
+    	}
+    }
+  } 
+
+  // ==========================
+  // Focused Attacks
+  // ==========================
+  "ella_focused_attacks"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "clinkz_strafe"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+	// Stats
+  	"AbilityManaCost"				"80"
+    "AbilityCooldown"               "80"
+    "AbilityCastRange"				"800"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.3"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "minus_armor"        	"-8 -12 -16 -20"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+       	"lifesteal"       		"25"
+   	  }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "duration"     	 		"12"
+      }
+    }
+
+    // Precache
+    "precache"
+	{
+		
+	}
+
+    "OnSpellStart"
+	{
+		
+	}
+
+    // Modifiers
+    "Modifiers"
+    {
+		
+    }
+  } 
 }
 
