@@ -2245,9 +2245,7 @@
     // Precache
     "precache"
 	{
-		"soundfile"		"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
-		"particle"		"particles/units/heroes/hero_legion_commander/legion_commander_odds.vpcf"
-		"particle"		"particles/units/heroes/hero_legion_commander/legion_commander_duel_ring.vpcf"
+	
 	}
 
     "OnSpellStart"
@@ -2312,7 +2310,7 @@
 
 		"rain_of_arrows_fx"
     	{
-    		"Duration" "1"
+    		"Duration" "2"
     		"OnCreated"
             {
                 "AttachEffect"
@@ -2339,9 +2337,10 @@
     "MaxLevel"                  "4"
 
     // Behavior
-    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
   	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+  	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 	// Stats
   	"AbilityManaCost"				"80"
@@ -2374,18 +2373,190 @@
     // Precache
     "precache"
 	{
-		
+		"particle"  "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 	}
 
     "OnSpellStart"
 	{
-		
+		"ApplyModifier"
+		{
+			"Target"	"TARGET"
+			"ModifierName"	"modifier_focused_attacks"
+		}
+
+		"FireSound"
+		{
+			"EffectName"	"Hero_LegionCommander.Duel.Cast"
+			"Target"	"TARGET"
+		}
 	}
 
     // Modifiers
     "Modifiers"
     {
+		"modifier_focused_attacks"
+		{
+			"Duration"	"%duration"
+			"IsDebuff"	"1"		
+			"EffectName" "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+			"EffectAttachType"	"follow_origin"
+			"OnAttacked"
+			{
+				"ApplyModifier"
+				{
+					"Target"		"ATTACKER"
+					"ModifierName"	"modifier_lifesteal"
+				}
+			}
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%minus_armor"				
+			}
+		}
+
+		"modifier_lifesteal"
+		{
+			"Duration"	"2"
+			"IsDebuff"	"1"		
+			"OnDealDamage"
+			{
+				"Lifesteal"
+				{
+					"Target" 				"ATTACKER"
+					"LifestealPercent"		"%lifesteal"
+				}
+				"RemoveModifier"
+				{
+					"Target"		"ATTACKER"
+					"ModifierName"	"modifier_lifesteal"
+				}
+			}
+		}
+    }
+  } 
+
+  // ==========================
+  // Aim for the Heart
+  // ==========================
+  "ella_aim_for_the_heart"
+  {
+    // General
+    "BaseClass"                 "ability_datadriven"
+    "AbilityTextureName"        "phantom_assassin_stifling_dagger"
+    "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+    "MaxLevel"                  "4"
+
+    // Behavior
+    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+	// Stats
+  	"AbilityManaCost"				"90 100 110 120"
+    "AbilityCooldown"               "30"
+    "AbilityCastRange"				"600"
+
+    "AbilityChannelTime"            "0.0"
+    "AbilityCastPoint"              "0.3"
+
+    // Special
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "crit_chance"        	"8 12 16 20"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+       	"crit_damage"       	"200"
+   	  }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "duration"     	 		"12"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"     	 		"350"
+      }
+    }
+
+    // Precache
+    "precache"
+	{
 		
+	}
+
+    "OnSpellStart"
+	{
+		"ApplyModifier"
+    	{
+    		"Target"        
+    		{
+    			"Center" "POINT"
+    			"Radius" "%radius"
+    			"Teams" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    			"Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    		}
+    		"ModifierName"	"modifier_aim_for_the_heart"
+    		"Duration"		"%duration"
+    	}
+	}
+
+    // Modifiers
+    "Modifiers"
+    {
+		"modifier_aim_for_the_heart"
+		{
+			"EffectName"			"particles/generic_gameplay/generic_slowed_cold.vpcf"
+			"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
+
+			"OnAttackStart"
+			{
+				"RemoveModifier"
+				{
+					"ModifierName"	"modifier_aim_for_the_heart_crit"
+					"Target"		"ATTACKER"
+				}
+
+				"Random"
+				{
+					"Chance"		"%crit_chance"
+
+					"OnSuccess"
+					{
+						"ApplyModifier"
+						{
+							"ModifierName"	"modifier_aim_for_the_heart_crit"
+							"Target"		"ATTACKER"
+						}
+					}
+				}
+			}
+		}
+
+		"modifier_aim_for_the_heart_crit"
+		{
+			"IsHidden"	"1"
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_damage"
+			}
+
+			"OnAttackLanded"
+			{
+				"RemoveModifier"
+				{
+					"ModifierName"	"modifier_aim_for_the_heart_crit"
+					"Target"		"ATTACKER"
+				}
+			}
+		}
     }
   } 
 }
