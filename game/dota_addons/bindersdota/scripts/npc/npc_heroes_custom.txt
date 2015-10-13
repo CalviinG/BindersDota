@@ -155,8 +155,8 @@
     "Ability1"        "ella_rain_of_arrows" 
     "Ability2"        "ella_aim_for_the_heart" 
     "Ability3"        "ella_focused_attacks" 
-    "Ability4"        ""
-    "ArmorPhysical"       "4"               // Physical protection.
+    "Ability4"        "ella_unity"
+    "ArmorPhysical"       "3"               // Physical protection.
 
     "AttackDamageMin"     	"35"                 // Damage range min.
     "AttackDamageMax"     	"41"                 // Damage range max.
