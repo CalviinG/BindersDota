@@ -45,7 +45,7 @@
 		"DOTA_Tooltip_Ability_sparkle_grace_movement_speed_bonus"  "Movement Speed:"
 		"DOTA_Tooltip_Ability_sparkle_grace_mana_regen_bonus"  "Mana Regen:"
 
-  		"DOTA_Tooltip_Ability_sparkle_indignation"  "Indignation"  
+  		"DOTA_Tooltip_Ability_sparkle_indignation"  "Judgement"  
 		"DOTA_Tooltip_Ability_sparkle_indignation_Description"  "Launches deadly bolts of energy towards the nearest target over time, dealing splash damage to everyone in the area."  
 		"DOTA_Tooltip_Ability_sparkle_indignation_Lore"  "Not all dryad magic is of the fluffy cuddly kind."  
 		"DOTA_Tooltip_Ability_sparkle_indignation_damage_tooltip"  "Damage:"
@@ -125,7 +125,7 @@
 		"DOTA_Tooltip_Ability_sparkle_grace_movement_speed_bonus"  "MOVEMENT SPEED:"
 		"DOTA_Tooltip_Ability_sparkle_grace_mana_regen_bonus"  "MANA REGENERATION:"
 
-  		"DOTA_Tooltip_Ability_sparkle_indignation"  "Indignation"  
+  		"DOTA_Tooltip_Ability_sparkle_indignation"  "Judgement"  
 		"DOTA_Tooltip_Ability_sparkle_indignation_Description"  "Launches deadly bolts of energy towards the nearest target over time, dealing splash damage to everyone in the area."  
 		"DOTA_Tooltip_Ability_sparkle_indignation_Lore"  "Not all dryad magic is of the fluffy cuddly kind."  
 		"DOTA_Tooltip_Ability_sparkle_indignation_damage_tooltip"  "DAMAGE:"
@@ -136,7 +136,7 @@
 		"DOTA_Tooltip_Ability_sparkle_indignation_duration_tooltip"  "DURATION:"
 
 		// Hidden ability, keep tooltip simple
-		"DOTA_Tooltip_ability_sparkle_indignation_bolt"                                   "Sparkle Indignation Bolt"
+		"DOTA_Tooltip_ability_sparkle_indignation_bolt"                                   "Sparkle Judgement Bolt"
 		"DOTA_Tooltip_ability_sparkle_indignation_bolt_Description"                       ""
 		"DOTA_Tooltip_ability_sparkle_indignation_bolt_Lore"                              ""
 		"DOTA_Tooltip_ability_sparkle_indignation_bolt_launch_radius"                     "LAUNCH RADIUS:"

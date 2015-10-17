@@ -1,203 +1,234 @@
 "DOTAHeroes"
 {
 
- // ---------------------------------------------
- //  SPARKLE
- // ---------------------------------------------
- "npc_dota_hero_sparkle"
-  {
-    "override_hero"     "npc_dota_hero_enchantress"
-    "Ability1"        "sparkle_glimmer_of_hope" 
-    "Ability2"        "sparkle_will_to_live" 
-    "Ability3"        "sparkle_grace" 
-    "Ability4"        "sparkle_indignation"
-    "Ability5"        "sparkle_indignation_bolt"
-    "ArmorPhysical"       "-3"               // Physical protection.
+    // ==========================
+    // Hero
+    // Sparkle
+    // ==========================
+    "npc_dota_hero_sparkle"
+    {
+        "override_hero"                 "npc_dota_hero_enchantress"
+        "Ability1"                      "sparkle_glimmer_of_hope" 
+        "Ability2"                      "sparkle_will_to_live" 
+        "Ability3"                      "sparkle_grace" 
+        "Ability4"                      "sparkle_indignation"
+        "Ability5"                      "sparkle_indignation_bolt"
+        "ArmorPhysical"                 "-3"              
 
-    "AttackDamageMin"     	"20"                 // Damage range min.
-    "AttackDamageMax"     	"25"                 // Damage range max.
-    "AttackRange"      		"650"     // Range within a target can be attacked.
+        "AttackDamageMin"     	        "20"              
+        "AttackDamageMax"     	        "25"                
+        "AttackRange"      		        "650"     
 
-    "AttributeBaseStrength"   "17"                  // Base strength
-    "AttributeStrengthGain"   "1.5"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "28"                   // Base intelligence
-    "AttributeIntelligenceGain" "3.3"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "24"                   // Base agility
-    "AttributeAgilityGain"    "2.2"                   // Agility bonus per level.
+        "AttributeBaseStrength"         "17"            
+        "AttributeStrengthGain"         "1.5"                  
+        "AttributeBaseAgility"          "24"                   
+        "AttributeAgilityGain"          "2.2"                 
+        "AttributeBaseIntelligence"     "28"                 
+        "AttributeIntelligenceGain"     "3.3"                  
 
-    "MovementSpeed"       "320"                 // Speed.
-    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
-    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
-  }
+        "MovementSpeed"                 "320"               
+        "VisionDaytimeRange"            "1800"                  
+        "VisionNighttimeRange"          "1800"                 
+    }
 
- // ==========================
- // Hero
- // Vapora
- // ==========================
- "npc_dota_hero_vapora"
- {
-    "override_hero"   "npc_dota_hero_naga_siren"
-    "Ability1"        "vapora_rip_tide" 
-    "Ability2"        "vapora_flood" 
-    "Ability3"        "vapora_as_water" 
-    "Ability4"        "vapora_reflection"
-    "ArmorPhysical"       "2"               // Physical protection.
+    // ==========================
+    // Hero
+    // Vapora
+    // ==========================
+    "npc_dota_hero_vapora"
+    {
+        "override_hero"                 "npc_dota_hero_naga_siren"
+        "Ability1"                      "vapora_rip_tide" 
+        "Ability2"                      "vapora_flood" 
+        "Ability3"                      "vapora_as_water" 
+        "Ability4"                      "vapora_reflection"
+        "ArmorPhysical"                 "2"              
 
-    "AttackDamageMin"     "44"                 // Damage range min.
-    "AttackDamageMax"     "50"                 // Damage range max.
+        "AttackDamageMin"               "44"                 
+        "AttackDamageMax"               "50"                
 
-    "AttributeBaseStrength"   "18"                  // Base strength
-    "AttributeStrengthGain"   "1.6"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "18"                   // Base intelligence
-    "AttributeIntelligenceGain" "1.9"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "23"                   // Base agility
-    "AttributeAgilityGain"    "2.7"                   // Agility bonus per level.
+        "AttributeBaseStrength"         "18"                 
+        "AttributeStrengthGain"         "1.6"                   
+        "AttributeBaseAgility"          "23"                  
+        "AttributeAgilityGain"          "2.7"                  
+        "AttributeBaseIntelligence"     "18"                  
+        "AttributeIntelligenceGain"     "1.9"                   
 
-    "MovementSpeed"       "320"                 // Speed.
-    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
-    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
- }
+        "MovementSpeed"                 "320"               
+        "VisionDaytimeRange"            "1800"                  
+        "VisionNighttimeRange"          "1800"                  
+    }
 
- // ==========================
- // Hero
- // Celsius
- // ==========================
- "npc_dota_hero_celsius"
- {
-    "override_hero"   "npc_dota_hero_crystal_maiden"
-    "Ability1"        "celsius_hailstorm" 
-    "Ability2"        "celsius_icebrand" 
-    "Ability3"        "celsius_absolute_zero" 
-    "Ability4"        "celsius_shatter"
-    "ArmorPhysical"       "-2"               // Physical protection.
+    // ==========================
+    // Hero
+    // Celsius
+    // ==========================
+    "npc_dota_hero_celsius"
+    {
+        "override_hero"                 "npc_dota_hero_crystal_maiden"
+        "Ability1"                      "celsius_hailstorm" 
+        "Ability2"                      "celsius_icebrand" 
+        "Ability3"                      "celsius_absolute_zero" 
+        "Ability4"                      "celsius_shatter"
+        "ArmorPhysical"                 "-2"              
 
-    "AttackDamageMin"     "16"                 // Damage range min.
-    "AttackDamageMax"     "23"                 // Damage range max.
-    "AttackRange"      		"600"     // Range within a target can be attacked.
+        "AttackDamageMin"               "16"                 
+        "AttackDamageMax"               "23"                
+        "AttackRange"                   "600"     
 
-    "AttributeBaseStrength"   "16"                  // Base strength
-    "AttributeStrengthGain"   "1.6"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "27"                   // Base intelligence
-    "AttributeIntelligenceGain" "4.0"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "15"                   // Base agility
-    "AttributeAgilityGain"    "1.7"                   // Agility bonus per level.
+        "AttributeBaseStrength"         "16"                 
+        "AttributeStrengthGain"         "1.6"                  
+        "AttributeBaseAgility"          "15"                   
+        "AttributeAgilityGain"          "1.7"                   
+        "AttributeBaseIntelligence"     "27"                  
+        "AttributeIntelligenceGain"     "4.0"                   
 
-    "MovementSpeed"       "320"                 // Speed.
-    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
-    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
- }
+        "MovementSpeed"                 "320"                 
+        "VisionDaytimeRange"            "1800"                 
+        "VisionNighttimeRange"          "1800"                  
+    }
 
- // ==========================
- // Hero
- // Roza Shanina
- // ==========================
- "npc_dota_hero_roza_shanina"
- {
-    "override_hero"   "npc_dota_hero_mirana"
-    "Ability1"        "roza_shanina_recklessness" 
-    "Ability2"        "roza_shanina_bullseye" 
-    "Ability3"        "roza_shanina_true_sniper" 
-    "Ability4"        "roza_shanina_the_unseen_terror"
-    "ArmorPhysical"       "2"               // Physical protection.
+    // ==========================
+    // Hero
+    // Roza Shanina
+    // ==========================
+    "npc_dota_hero_roza_shanina"
+    {
+        "override_hero"                "npc_dota_hero_mirana"
+        "Ability1"                     "roza_shanina_recklessness" 
+        "Ability2"                     "roza_shanina_bullseye" 
+        "Ability3"                     "roza_shanina_true_sniper" 
+        "Ability4"                     "roza_shanina_the_unseen_terror"
+        "ArmorPhysical"                "2"              
 
-    "AttackDamageMin"     	"80"                 // Damage range min.
-    "AttackDamageMax"     	"87"                 // Damage range max.
-    "AttackRate"			"3.0"		// BAT
-    "AttackRange"      		"500"     // Range within a target can be attacked.
+        "AttackDamageMin"     	       "80"                
+        "AttackDamageMax"              "87"               
+        "AttackRate"                   "3.0"		
+        "AttackRange"      		       "500"   
 
-    "AttributeBaseStrength"   "16"                  // Base strength
-    "AttributeStrengthGain"   "1.5"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "21"                   // Base intelligence
-    "AttributeIntelligenceGain" "2.0"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "14"                   // Base agility
-    "AttributeAgilityGain"    "1.9"                   // Agility bonus per level.
+        "AttributeBaseStrength"         "16"                  
+        "AttributeStrengthGain"         "1.5"                   
+        "AttributeBaseAgility"          "14"                  
+        "AttributeAgilityGain"          "1.9"                  
+        "AttributeBaseIntelligence"     "21"                   
+        "AttributeIntelligenceGain"     "2.0"                   
 
-    "MovementSpeed"       "320"                 // Speed.
-    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
-    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
- }
+        "MovementSpeed"                 "320"               
+        "VisionDaytimeRange"            "1800"                
+        "VisionNighttimeRange"          "1800"                  
+    }
 
- // ==========================
- // Hero
- // Garros
- // ==========================
- "npc_dota_hero_garros"
- {
-    "override_hero"   "npc_dota_hero_axe"
-    "Ability1"        "garros_bulls_strength" 
-    "Ability2"        "garros_tornado" 
-    "Ability3"        "garros_pumped_up" 
-    "Ability4"        "garros_warlords_banner"
-    "ArmorPhysical"       "2"               // Physical protection.
+    // ==========================
+    // Hero
+    // Garros
+    // ==========================
+    "npc_dota_hero_garros"
+    {
+        "override_hero"                 "npc_dota_hero_axe"
+        "Ability1"                      "garros_bulls_strength" 
+        "Ability2"                      "garros_tornado" 
+        "Ability3"                      "garros_pumped_up" 
+        "Ability4"                      "garros_warlords_banner"
+        "ArmorPhysical"                 "2"              
 
-    "AttackDamageMin"     	"19"                 // Damage range min.
-    "AttackDamageMax"     	"25"                 // Damage range max.
+        "AttackDamageMin"               "19"                
+        "AttackDamageMax"               "25"               
 
-    "AttributeBaseStrength"   "28"                  // Base strength
-    "AttributeStrengthGain"   "3.5"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "14"                   // Base intelligence
-    "AttributeIntelligenceGain" "2.1"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "13"                   // Base agility
-    "AttributeAgilityGain"    "1.7"                   // Agility bonus per level.
+        "AttributeBaseStrength"         "28"                 
+        "AttributeStrengthGain"         "3.5"                   
+        "AttributeBaseAgility"          "13"                  
+        "AttributeAgilityGain"          "1.7"                  
+        "AttributeBaseIntelligence"     "14"                   
+        "AttributeIntelligenceGain"     "2.1"                 
 
-    "MovementSpeed"       "320"                 // Speed.
-    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
-    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
- }
+        "MovementSpeed"                 "320"                
+        "VisionDaytimeRange"            "1800"                
+        "VisionNighttimeRange"          "1800"                 
+    }
 
- // ==========================
- // Hero
- // Ella
- // ==========================
- "npc_dota_hero_ella"
- {
-    "override_hero"   "npc_dota_hero_legion_commander"
-    "Ability1"        "ella_rain_of_arrows" 
-    "Ability2"        "ella_aim_for_the_heart" 
-    "Ability3"        "ella_focused_attacks" 
-    "Ability4"        "ella_unity"
-    "ArmorPhysical"       "3"               // Physical protection.
+    // ==========================
+    // Hero
+    // Ella
+    // ==========================
+    "npc_dota_hero_ella"
+    {
+        "override_hero"                 "npc_dota_hero_legion_commander"
+        "Ability1"                      "ella_rain_of_arrows" 
+        "Ability2"                      "ella_aim_for_the_heart" 
+        "Ability3"                      "ella_focused_attacks" 
+        "Ability4"                      "ella_unity"
+        "ArmorPhysical"                 "3"              
 
-    "AttackDamageMin"     	"35"                 // Damage range min.
-    "AttackDamageMax"     	"41"                 // Damage range max.
+        "AttackDamageMin"               "35"                 
+        "AttackDamageMax"               "41"                 
 
-    "AttributeBaseStrength"   "25"                  // Base strength
-    "AttributeStrengthGain"   "2.9"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "19"                   // Base intelligence
-    "AttributeIntelligenceGain" "2.2"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "16"                   // Base agility
-    "AttributeAgilityGain"    "1.5"                   // Agility bonus per level.
+        "AttributeBaseStrength"         "25"                 
+        "AttributeStrengthGain"         "2.9"                
+        "AttributeBaseAgility"          "16"                  
+        "AttributeAgilityGain"          "1.5"                   
+        "AttributeBaseIntelligence"     "19"                  
+        "AttributeIntelligenceGain"     "2.2"                   
 
-    "MovementSpeed"       "320"                 // Speed.
-    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
-    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
- }
+        "MovementSpeed"                 "320"                 
+        "VisionDaytimeRange"            "1800"                 
+        "VisionNighttimeRange"          "1800"                  
+    }
 
- // ==========================
- // Hero
- // Templar
- // ==========================
- "npc_dota_hero_templar"
- {
-    "override_hero"   "npc_dota_hero_omniknight"
-    "Ability1"        "templar_mend" 
-    "Ability2"        "templar_heros_sacrifice" 
-    "Ability3"        "templar_inspire" 
-    "Ability4"        "templar_united_we_stand"
-    "ArmorPhysical"       "3"               // Physical protection.
+    // ==========================
+    // Hero
+    // Templar
+    // ==========================
+    "npc_dota_hero_templar"
+    {
+        "override_hero"                 "npc_dota_hero_omniknight"
+        "Ability1"                      "templar_mend" 
+        "Ability2"                      "templar_heros_sacrifice" 
+        "Ability3"                      "templar_inspire" 
+        "Ability4"                      "templar_united_we_stand"
+        "ArmorPhysical"                 "3"               
 
-    "AttackDamageMin"       "19"                 // Damage range min.
-    "AttackDamageMax"       "25"                 // Damage range max.
+        "AttackDamageMin"               "19"                
+        "AttackDamageMax"               "25"                
 
-    "AttributeBaseStrength"   "26"                  // Base strength
-    "AttributeStrengthGain"   "3.1"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "21"                   // Base intelligence
-    "AttributeIntelligenceGain" "2.5"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "12"                   // Base agility
-    "AttributeAgilityGain"    "1.5"                   // Agility bonus per level.
+        "AttributeBaseStrength"         "26"                 
+        "AttributeStrengthGain"         "3.1"                   
+        "AttributeBaseAgility"          "12"                  
+        "AttributeAgilityGain"          "1.5"                  
+        "AttributeBaseIntelligence"     "21"                   
+        "AttributeIntelligenceGain"     "2.5"                   
 
-    "MovementSpeed"       "320"                 // Speed.
-    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
-    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
- }
+        "MovementSpeed"                 "320"                 
+        "VisionDaytimeRange"            "1800"                 
+        "VisionNighttimeRange"          "1800"                  
+    }
+
+    // ==========================
+    // Hero
+    // Celaena
+    // ==========================
+    "npc_dota_hero_celaena"
+    {
+        "override_hero"                 "npc_dota_hero_phantom_assassin"
+        "AbilityLayout"                 "5"
+        "Ability1"                      "celaena_blood_dagger" 
+        "Ability2"                      "celaena_execute" 
+        "Ability3"                      "celaena_a_thiefs_wit" 
+        "Ability4"                      "celaena_brand"
+        "Ability5"                      "celaena_bloodsport"
+        "ArmorPhysical"                 "0"              
+
+        "AttackDamageMin"               "39"                
+        "AttackDamageMax"               "45"              
+
+        "AttributeBaseStrength"         "19"               
+        "AttributeStrengthGain"         "1.9"                 
+        "AttributeBaseAgility"          "25"                 
+        "AttributeAgilityGain"          "2.9"               
+        "AttributeBaseIntelligence"     "25"             
+        "AttributeIntelligenceGain"     "1.8"                
+
+        "MovementSpeed"                 "320"               
+        "VisionDaytimeRange"            "1800"                  
+        "VisionNighttimeRange"          "1800"                 
+    }
 }
