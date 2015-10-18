@@ -215,6 +215,7 @@
         "Ability3"                      "celaena_a_thiefs_wit" 
         "Ability4"                      "celaena_brand"
         "Ability5"                      "celaena_bloodsport"
+        "Ability6"                      "attribute_bonus"
         "ArmorPhysical"                 "0"              
 
         "AttackDamageMin"               "39"                

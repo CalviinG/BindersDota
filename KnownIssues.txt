@@ -7,3 +7,4 @@
 5. Roza ulti particle recolor. (Green->Blue)
 6. Refresher destroys like a bazillion spells. (Just don't implement Refresher pls)
 7. Some icons doesn't fit color theme. (We should make custom icons)
+8. Sparkle will to live probably needs a better particle. (Look to remove PA from the current one)

@@ -3281,19 +3281,18 @@
 	{
 		// General
 		"BaseClass"                 "ability_datadriven"
-		"AbilityTextureName"        "slardar_amplify_damage"
+		"AbilityTextureName"        "magnataur_shockwave"
 		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"                  "1"
 
 		// Behavior
-		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 
 		// Stats
-		"AbilityManaCost"			"0"
+		"AbilityManaCost"			"120"
 		"AbilityCooldown"         	"10"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 
 		"AbilityChannelTime"      	"0.0"
 		"AbilityCastPoint"        	"0.3"
@@ -3301,48 +3300,38 @@
 		// Special
 		"AbilitySpecial"
 		{
-			
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"170 230 290 350"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"execute_threshold"			"320 460 580 700"
+			}
 		}
 
 		// Precache
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf"
+			"particle"  "particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_attack_blink.vpcf"
 		}
 
 		// Datadriven
 		"OnSpellStart"
 		{
-			
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/celaena_execute.lua"
+				"Function"		"ExecuteInit"
+			}
 		}
 
 		// Modifiers
 		"Modifiers"
 		{
-			"modifier_branded"
-			{
-				"IsPurgable"		"0"
-				"IsDebuff"			"1"
-				"TextureName"		"slardar_amplify_damage"
-
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/celaena_brand.lua"
-						"Function"		"BrandParticle"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"abilities/celaena_brand.lua"
-						"Function"		"EndBrandParticle"
-					}
-				}
-			}
+			
 		}
 	}
 
@@ -3377,7 +3366,7 @@
 		// Precache
 		"precache"
 		{
-
+			"particle"  "particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_impact_dagger_arcana.vpcf"
 		}
 
 		// Modifiers

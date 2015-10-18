@@ -22,6 +22,7 @@
 		"npc_dota_hero_omniknight" 		"Templar"
 		"npc_dota_hero_mirana" 			"Roza Shanina"
 		"npc_dota_hero_ember_spirit"	"Flamebender"
+		"npc_dota_hero_phantom_assassin"	"Celaena"
 
 
 		// ******************** ABILITIES ********************
