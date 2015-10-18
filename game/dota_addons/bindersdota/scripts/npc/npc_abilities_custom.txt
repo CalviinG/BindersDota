@@ -2717,11 +2717,17 @@
 		// Precache
 		"precache"
 		{
-
+			"particle"  "particles/units/heroes/hero_chen/chen_holy_persuasion.vpcf"
 		}
 
 		"OnSpellStart"
 		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_chen/chen_holy_persuasion.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
 			"RunScript"
 			{
 				"ScriptFile"	"abilities/templar_mend.lua"
@@ -2963,9 +2969,9 @@
 	}
 
 	// ==========================
-	// United We Stand
+	// Guardian Angel
 	// ==========================
-	"templar_united_we_stand"
+	"templar_guardian_angel"
 	{
 		// General
 		"BaseClass"                 "ability_datadriven"
@@ -2974,10 +2980,12 @@
 
 		// Behavior
 		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
 		// Stats
 		"AbilityManaCost"			"140 170 200"
-		"AbilityCooldown"         	"120"
+		"AbilityCooldown"         	"100 90 80"
 
 		"AbilityChannelTime"      	"0.0"
 		"AbilityCastPoint"        	"0.3"
@@ -2985,57 +2993,71 @@
 		// Special
 		"AbilitySpecial"
 		{
-			"01"
+			"02"
 			{
-				"var_type"							"FIELD_FLOAT"
-				"illusion_duration"					"20.0"
+				"var_type"					"FIELD_INTEGER"
+				"min_health"				"100 200 300"
 			}
 			"02"
 			{
-				"var_type"							"FIELD_INTEGER"
-				"outgoing_damage"					"-100"
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"8 9 10"
 			}
 			"03"
 			{
-				"var_type"							"FIELD_INTEGER"
-				"outgoing_damage_tooltip"			"0"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"incoming_damage"					"0"
-			}
-			"05"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"tooltip_incoming_damage_total_pct"	"100"
-			}
-			"06"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"images_count"						"1 2 3"
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"600"
 			}
 		}
 
 		// Precache
 		"precache"
 		{
-
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"particle"		"particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
 		}
 
 		"OnSpellStart"
 		{
-			"RunScript"
-		    {
-		        "ScriptFile"    "abilities/templar_united_we_stand.lua"
-		        "Function"      "CreateIllusions"
-		    }
+			"FireSound"
+			{
+				"EffectName"	"Hero_Dazzle.Shallow_Grave"
+				"Target" 		"CASTER"
+			}
+
+			"ApplyModifier"
+			{
+				"Target"
+				{
+					"Center"  	"CASTER"
+					"Radius" 	"%radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+				"ModifierName"	"modifier_united_we_stand"
+				"Duration"		"%duration"
+			}
 		}
 
 		// Modifiers
 		"Modifiers"
 		{
-			
+			"modifier_united_we_stand"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"IsBuff"			"1"
+
+				"EffectName"		"particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
+				"EffectAttachType"	"follow_origin"
+		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "%min_health" 
+				}
+			}
 		}
 	}
 

@@ -184,7 +184,7 @@
         "Ability1"                      "templar_mend" 
         "Ability2"                      "templar_heros_sacrifice" 
         "Ability3"                      "templar_inspire" 
-        "Ability4"                      "templar_united_we_stand"
+        "Ability4"                      "templar_guardian_angel"
         "ArmorPhysical"                 "3"               
 
         "AttackDamageMin"               "19"                
