@@ -8,7 +8,7 @@ function UnityOnDamageTaken( keys )
 	damageTable.ability = ability
 	damageTable.damage_type = DAMAGE_TYPE_PURE
 
-	local unitsToDamage = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+	local unitsToDamage = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_INVULNERABLE, 0, false)
 	local count = 0
 	for _ in pairs(unitsToDamage) do count = count + 1 end
 	damageTable.damage = damageToShare / count

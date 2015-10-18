@@ -90,15 +90,29 @@ function GameMode:OnHeroInGame(hero)
   hero:SetGold(500, false)
 
   -- These lines will create an item and add it to the player, effectively ensuring they start with the item
-  local item = CreateItem("item_example_item", hero, hero)
-  hero:AddItem(item)
-
+  GameMode:InitializeInnateAbilities(hero)
   --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
     --with the "example_ability" ability
-
+  
   local abil = hero:GetAbilityByIndex(1)
   hero:RemoveAbility(abil:GetAbilityName())
   hero:AddAbility("example_ability")]]
+end
+
+function GameMode:InitializeInnateAbilities( hero )
+
+  -- List of innate abilities
+  local innate_abilities = {
+    "celaena_brand"
+  }
+
+  -- Cycle through any innate abilities found, then upgrade them
+  for i = 1, #innate_abilities do
+    local current_ability = hero:FindAbilityByName(innate_abilities[i])
+    if current_ability then
+      current_ability:SetLevel(1)
+    end
+  end
 end
 
 --[[

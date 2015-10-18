@@ -918,9 +918,8 @@
                 "States"
                 {
                     "MODIFIER_STATE_INVULNERABLE"           "MODIFIER_STATE_VALUE_ENABLED"
-                    "MODIFIER_STATE_LOW_ATTACK_PRIORITY"
-                    "MODIFIER_STATE_VALUE_ENABLED"
-                    "MODIFIER_STATE_NO_HEALTH_BAR"          "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_LOW_ATTACK_PRIORITY"	"MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_NO_HEALTH_BAR"         	 "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_UNSELECTABLE"           "MODIFIER_STATE_VALUE_ENABLED"
                     "MODIFIER_STATE_STUNNED"                "MODIFIER_STATE_VALUE_ENABLED"
                 }
@@ -2347,7 +2346,7 @@
 
 	// Stats
   	"AbilityManaCost"				"80"
-    "AbilityCooldown"               "80"
+    "AbilityCooldown"               "60"
     "AbilityCastRange"				"800"
 
     "AbilityChannelTime"            "0.0"
@@ -2359,7 +2358,7 @@
       "01"
       {
         "var_type"              "FIELD_INTEGER"
-        "minus_armor"        	"-8 -12 -16 -20"
+        "minus_armor"        	"-4 -6 -8 -10"
       }
       "02"
       {
@@ -2582,7 +2581,7 @@
     // Behavior
     "AbilityBehavior"      	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-  	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+  	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
 
 	// Stats
   	"AbilityManaCost"				"150"
@@ -2633,8 +2632,8 @@
 	        "Aura"			"modifier_unity_affected"
 	        "Aura_Radius"	"%radius"
 	        "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-			"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-			"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_NONE"
+			"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+			"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		}
 
 		"modifier_unity_affected"
@@ -2660,5 +2659,909 @@
 	   	}
     }
   } 
-}
 
+	// ==========================
+	// Hero
+	// Templar
+	// ==========================
+
+	// ==========================
+	// Mend
+	// ==========================
+	"templar_mend"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "omniknight_degen_aura"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"                  "4"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+
+		// Stats
+		"AbilityManaCost"			"70 80 90 100"
+		"AbilityCooldown"         	"20"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+		"AoERadius"					"300"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"regen_per_unit"        "2 4 6 8"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"duration"       		"12"
+			}
+			"03"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"max_stacks"     	 	"5"
+			}
+			"04"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"radius"     	 		"300"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_chen/chen_holy_persuasion.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_chen/chen_holy_persuasion.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/templar_mend.lua"
+				"Function"		"MendAddStacks"
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_mend_stack"
+			{
+				"Duration"			"%duration"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%regen_per_unit"
+				}
+			}
+		}
+	}
+
+	// ==========================
+	// Hero's Sactifice
+	// ==========================
+	"templar_heros_sacrifice"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "omniknight_purification"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"                  "4"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		// Stats
+		"AbilityManaCost"			"50"
+		"AbilityCooldown"         	"7"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+		"AoERadius"					"250"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"heal_amount"        	"80 120 160 200"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"sacrifice_amount"   	"100 150 200 250"
+			}
+			"03"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"radius"     	 		"250"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Omniknight.Purification"
+				"Target" 		"CASTER"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+
+			"Damage"
+			{
+				"Target"		"CASTER"
+				"Type"			"DAMAGE_TYPE_PURE"
+				"Damage"		"%sacrifice_amount"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/templar_heros_sacrifice.lua"
+				"Function"		"HerosSacrificeInit"
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_mend_stack"
+			{
+				"Duration"			"%duration"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%regen_per_unit"
+				}
+			}
+		}
+	} 
+
+	// ==========================
+	// Inspire
+	// ==========================
+	"templar_inspire"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "omniknight_repel"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"                  "4"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		// Stats
+		"AbilityManaCost"			"110"
+		"AbilityCooldown"         	"30"
+
+		"AbilityChannelTime"      	"10"
+		"AbilityCastPoint"        	"0.3"
+		"AoERadius"					"500"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"attack_increase"     	"10 15 20 25"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"duration"   			"10"
+			}
+			"03"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"radius"     	 		"500"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"			"DOTA_Item.Mekansm.Activate"
+				"Target" 				"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"			"modifier_inspire"
+				"Target"				"CASTER"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"			"modifier_inspire"
+				"Target"				"CASTER"
+			}
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"			"modifier_inspire"
+				"Target"				"CASTER"
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_inspire"
+			{
+				"StatusEffectName"     "particles/status_fx/status_effect_guardian_angel.vpcf"
+				"StatusEffectPriority" "10"
+
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				"Aura"					"modifier_inspire_buff"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_guardian_angel_halo_buff.vpcf"
+						"EffectAttachType"	"follow_overhead"
+						"Target"			"CASTER"
+					}
+
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+		
+			"modifier_inspire_buff"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_increase"
+				}
+			}
+		}
+	}
+
+	// ==========================
+	// Guardian Angel
+	// ==========================
+	"templar_guardian_angel"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "dark_seer_wall_of_replica"
+		"AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		// Stats
+		"AbilityManaCost"			"140 170 200"
+		"AbilityCooldown"         	"100 90 80"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"min_health"				"100 200 300"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"8 9 10"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"600"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"particle"		"particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Dazzle.Shallow_Grave"
+				"Target" 		"CASTER"
+			}
+
+			"ApplyModifier"
+			{
+				"Target"
+				{
+					"Center"  	"CASTER"
+					"Radius" 	"%radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+				"ModifierName"	"modifier_united_we_stand"
+				"Duration"		"%duration"
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_united_we_stand"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"IsBuff"			"1"
+
+				"EffectName"		"particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
+				"EffectAttachType"	"follow_origin"
+		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "%min_health" 
+				}
+			}
+		}
+	}
+
+	// ==========================
+	// Hero
+	// Celaena
+	// ==========================
+
+	// ==========================
+	// Brand
+	// ==========================
+	"celaena_brand"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "slardar_amplify_damage"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"                  "1"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+
+		// Stats
+		"AbilityManaCost"			"0"
+		"AbilityCooldown"         	"10"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+
+		// Special
+		"AbilitySpecial"
+		{
+			
+		}
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf"
+		}
+
+		// Datadriven
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Abaddon.DeathCoil.Cast"
+				"Target" 		"TARGET"
+			}
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_branded"
+				"Target" 		"TARGET"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_branded"
+				"Target" 		"TARGET"
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_branded"
+			{
+				"IsPurgable"		"0"
+				"IsDebuff"			"1"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_brand.lua"
+						"Function"		"BrandParticle"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_brand.lua"
+						"Function"		"EndBrandParticle"
+					}
+				}
+			}
+		}
+	}
+
+	// ==========================
+	// Blood Dagger
+	// ==========================
+	"celaena_blood_dagger"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "phantom_assassin_stifling_dagger"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+
+		// Stats
+		"AbilityManaCost"			"30 40 50 60"
+		"AbilityCooldown"         	"8"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"80 140 200 260"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"2 3 4 5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spread_radius"			"300"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dagger_speed"			"1200"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+			
+		}
+
+		// Datadriven
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"           	"TARGET"
+			    "EffectName"       	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger.vpcf"
+			    "Dodgeable"        	"1"
+			    "ProvidesVision"   	"1"
+			    "VisionRadius"     	"300"
+			    "MoveSpeed"        	"%dagger_speed"
+			    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Hero_PhantomAssassin.Dagger.Cast"
+				"Target"			"CASTER"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_blood_dagger_dot"
+				"Target"			"TARGET"
+			}
+
+			"FireSound"
+			{
+				"EffectName"		"Hero_PhantomAssassin.Dagger.Target"
+				"Target"			"TARGET"
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_blood_dagger_dot"
+			{
+				"IsDebuff"	"1"
+				"Duration"	"%duration"
+
+				"EffectName"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_blood_dagger.lua"
+						"Function"		"BloodDaggerDamage"
+						"daggerDamage"	"%damage"
+						"dotDamage"		"damage_per_second"
+					}
+				}
+			}
+
+			"modifier_branded"
+			{
+				"IsPurgable"		"0"
+				"IsDebuff"			"1"
+				"TextureName"		"slardar_amplify_damage"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_brand.lua"
+						"Function"		"BrandParticle"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_brand.lua"
+						"Function"		"EndBrandParticle"
+					}
+				}
+			}
+		}
+	}
+
+	// ==========================
+	// Execute
+	// ==========================
+	"celaena_execute"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "magnataur_shockwave"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+
+		// Stats
+		"AbilityManaCost"			"120"
+		"AbilityCooldown"         	"10"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"170 230 290 350"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"execute_threshold"			"320 460 580 700"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_attack_blink.vpcf"
+		}
+
+		// Datadriven
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/celaena_execute.lua"
+				"Function"		"ExecuteInit"
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			
+		}
+	}
+
+	// ==========================
+	// A Thief's Wit
+	// ==========================
+	"celaena_a_thiefs_wit"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "phantom_assassin_coup_de_grace"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_damage"				"200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"15 20 25 30"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_crit_impact_dagger_arcana.vpcf"
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_thiefs_wit"
+			{
+			    "Passive"   "1"
+			    "IsHidden"  "1"
+
+			    "OnAttackStart"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName" 	"modifier_thiefs_wit_crit"
+			            "Target" 		"CASTER"
+			        }
+
+			        "Random"
+			        {
+			            "Chance" 	"%crit_chance"
+			            "OnSuccess"
+			            {
+			                "ApplyModifier"
+			                {
+			                    "ModifierName" 	"modifier_thiefs_wit_crit"
+			                    "Target"    	"CASTER"    
+			                }        
+			            }
+			        }
+			    }
+			}
+
+			"modifier_thiefs_wit_crit"
+			{
+			    "IsHidden"  "1"
+			    "Properties"
+			    {
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_damage"
+			    }
+			    "OnAttackLanded"
+			  	// "%attack_damage" is set to the damage value before mitigation
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName"  "modifier_thiefs_wit_crit"
+			            "Target"   		"CASTER"    
+			        }
+
+			        "FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						
+						"ControlPointEntities"
+						{
+							"TARGET"	"follow_origin"
+							"TARGET"	"follow_origin"
+						}
+					}
+
+					"FireSound"
+					{
+						"EffectName"	"Hero_PhantomAssassin.CoupDeGrace"
+						"Target"		"TARGET"
+					}
+
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_thiefs_wit.lua"
+						"Function"		"ThiefsWitCrit"
+						"critDamage"	"%attack_damage"
+					}
+			    }
+			}
+		}
+	}
+
+	// ==========================
+	// Bloodsport
+	// ==========================
+	"celaena_bloodsport"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "phantom_assassin_blur"
+		"AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+
+		// Stats
+		"AbilityManaCost"			"150"
+		"AbilityCooldown"         	"130 100 70"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"600"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"8 10 12"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf"
+		}
+
+		// Datadriven
+		"OnSpellStart"
+		{
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"  	"CASTER"
+					"Radius" 	"%radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+				}
+			
+				"Action"    
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_bloodsport.lua"
+						"Function"		"BloodsportInit"
+					}
+				}
+			}	
+			
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_branded"
+			{
+				"IsPurgable"		"0"
+				"IsDebuff"			"1"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_brand.lua"
+						"Function"		"BrandParticle"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/celaena_brand.lua"
+						"Function"		"EndBrandParticle"
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+----- HERO IMPLEMENTATION -----
+
+1. Vapora and Templar illusion bug. (Tools only?? please check)
+2. Vapora ugly particle flood. (Use kunkka water particle)
+3. Garros news another model for his banner. (Suggestions?)
+4. Garros cleave needs recoding. (Probably needs Lua)
+5. Roza ulti particle recolor. (Green->Blue)
+6. Refresher destroys like a bazillion spells. (Just don't implement Refresher pls)
+7. Some icons doesn't fit color theme. (We should make custom icons)
+8. Sparkle will to live probably needs a better particle. (Look to remove PA from the current one)
