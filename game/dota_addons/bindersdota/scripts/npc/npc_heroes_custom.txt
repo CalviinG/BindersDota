@@ -232,4 +232,36 @@
         "VisionDaytimeRange"            "1800"                  
         "VisionNighttimeRange"          "1800"                 
     }
+
+    // ==========================
+    // Hero
+    // Icarus
+    // ==========================
+    "npc_dota_hero_icarus"
+    {
+        "override_hero"                 "npc_dota_hero_phoenix"
+        "AbilityLayout"                 "4"
+        "Ability1"                      "icarus_fire_plume" 
+        "Ability2"                      "icarus_flight_of_the_phoenix" 
+        "Ability3"                      "icarus_heart_of_the_phoenix" 
+        "Ability4"                      "icarus_rebirth"
+        "Ability5"                      ""
+        "ArmorPhysical"                 "0"         
+        "AttributePrimary"              "DOTA_ATTRIBUTE_INTELLECT"
+        "AttackRange"                   "500"   
+
+        "AttackDamageMin"               "29"                
+        "AttackDamageMax"               "32"              
+
+        "AttributeBaseStrength"         "22"               
+        "AttributeStrengthGain"         "2.7"                 
+        "AttributeBaseAgility"          "19"                 
+        "AttributeAgilityGain"          "1.4"               
+        "AttributeBaseIntelligence"     "25"             
+        "AttributeIntelligenceGain"     "3.0"                
+
+        "MovementSpeed"                 "320"               
+        "VisionDaytimeRange"            "1800"                  
+        "VisionNighttimeRange"          "1800"                 
+    }
 }
