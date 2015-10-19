@@ -30,7 +30,7 @@
   	"AbilityManaCost"       "90 100 110 120"
     "AbilityCooldown"       "35"
     "AbilityCastRange"      "700"
-    "AoERadius"             "400"
+    "AoERadius"					"%radius"
 
     "AbilityChannelTime"    "0.0"
     "AbilityCastPoint"      "0.5"
@@ -387,7 +387,7 @@
     // Stats
     "AbilityManaCost"               "200 300 400"
     "AbilityCooldown"               "150 130 110"
-    "AbilityCastRange"              "900"
+    "AoERadius"					"%radius"
 
     "AbilityCastPoint"              "0.0"
 
@@ -585,6 +585,7 @@
         "AbilityCooldown"           "10.0"
         "AbilityManaCost"           "80 90 100 110"
         "AbilityDamage"             "130 160 190 220"
+        "AoERadius"					"%radius"
 
         //Casting
         //-----------------------------------------------------------------------------------
@@ -695,6 +696,7 @@
         //-----------------------------------------------------------------------------------
         "AbilityCastPoint"          "0.2"
         "AbilityCastRange"          "900"
+        "AoERadius"					"%radius"
         "OnSpellStart"
         {
             "CreateThinker"
@@ -977,7 +979,7 @@
   	// Stats
   	"AbilityManaCost"       "90 100 110 120"
     "AbilityCooldown"       "16"
-    "AoERadius"				"750"
+    "AoERadius"					"%search_radius"
 
     "AbilityChannelTime"    "0.0"
     "AbilityCastPoint"      "0.3"
@@ -1099,7 +1101,7 @@
   	"AbilityManaCost"				"60 80 100 120"
     "AbilityCooldown"               "14"
     "AbilityCastRange"              "600"
-    "AoERadius"             		"300"
+    "AoERadius"						"%radius"
 
     "AbilityChannelTime"            "0.0"
     "AbilityCastPoint"              "0.3"
@@ -1217,6 +1219,7 @@
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
   	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+  	"AoERadius"					"%radius"
 
     // Special
     "AbilitySpecial"
@@ -1327,7 +1330,7 @@
  	// Stats
   	"AbilityManaCost"				"200 300 400"
     "AbilityCooldown"               "100 80 60"
-    "AoERadius"             		"700"
+    "AoERadius"						"%radius"
 
     "AbilityChannelTime"            "0.0"
     "AbilityCastPoint"              "0.3"
@@ -1399,6 +1402,7 @@
     {
     	"shatter_fx"
     	{
+    		"IsHidden"	"1"
 			"EffectName"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_death.vpcf"
 			"StatusEffectName"		"particles/status_fx/status_effect_frost_lich.vpcf"
 			"StatusEffectPriority"	"10"
@@ -1923,7 +1927,7 @@
     "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
   	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
-  	"AoERadius"						"900"
+  	"AoERadius"					"%radius"
 
     // Special
     "AbilitySpecial"
@@ -1991,7 +1995,7 @@
   	// Stats
   	"AbilityManaCost"				"110"
     "AbilityCooldown"               "20 19 18 17"
-  	"AoERadius"						"275"
+  	"AoERadius"						"%radius"
 
     "AbilityChannelTime"            "0.0"
     "AbilityCastPoint"              "0.0"
@@ -2118,7 +2122,7 @@
 
     "AbilityChannelTime"            "0.0"
     "AbilityCastPoint"              "0.3"
-  	"AoERadius"						"400"
+  	"AoERadius"						"%radius"
 
     // Special
     "AbilitySpecial"
@@ -2222,7 +2226,7 @@
 
     "AbilityChannelTime"            "0.0"
     "AbilityCastPoint"              "0.3"
-  	"AoERadius"						"330"
+  	"AoERadius"						"%radius"
 
     // Special
     "AbilitySpecial"
@@ -2421,6 +2425,7 @@
 		{
 			"Duration"	"2"
 			"IsDebuff"	"1"		
+			"IsHidden" "1"
 			"OnDealDamage"
 			{
 				"Lifesteal"
@@ -2461,6 +2466,7 @@
 
     "AbilityChannelTime"            "0.0"
     "AbilityCastPoint"              "0.3"
+    "AoERadius"						"%radius"
 
     // Special
     "AbilitySpecial"
@@ -2586,7 +2592,7 @@
 	// Stats
   	"AbilityManaCost"				"150"
     "AbilityCooldown"               "140 100 60"
-    "AoERadius"						"500"
+    "AoERadius"						"%radius"
 
     "AbilityChannelTime"            "0.0"
     "AbilityCastPoint"              "0.3"
@@ -2627,7 +2633,7 @@
     {
     	"modifier_unity_aura"
 	 	{
-	    	"IsHidden"    	"0"
+	    	"IsHidden"    	"1"
 
 	        "Aura"			"modifier_unity_affected"
 	        "Aura_Radius"	"%radius"
@@ -2687,7 +2693,7 @@
 
 		"AbilityChannelTime"      	"0.0"
 		"AbilityCastPoint"        	"0.3"
-		"AoERadius"					"300"
+		"AoERadius"					"%radius"
 
 		// Special
 		"AbilitySpecial"
@@ -2772,7 +2778,7 @@
 
 		"AbilityChannelTime"      	"0.0"
 		"AbilityCastPoint"        	"0.3"
-		"AoERadius"					"250"
+		"AoERadius"					"%radius"
 
 		// Special
 		"AbilitySpecial"
@@ -2866,7 +2872,7 @@
 
 		"AbilityChannelTime"      	"10"
 		"AbilityCastPoint"        	"0.3"
-		"AoERadius"					"500"
+		"AoERadius"					"%radius"
 
 		// Special
 		"AbilitySpecial"
@@ -2906,6 +2912,11 @@
 				"ModifierName"			"modifier_inspire"
 				"Target"				"CASTER"
 			}
+			"ApplyModifier"
+			{
+				"ModifierName"			"modifier_channeling"
+				"Target"				"CASTER"
+			}
 		}
 
 		"OnChannelFinish"
@@ -2915,6 +2926,11 @@
 				"ModifierName"			"modifier_inspire"
 				"Target"				"CASTER"
 			}
+			"RemoveModifier"
+			{
+				"ModifierName"			"modifier_channeling"
+				"Target"				"CASTER"
+			}
 		}
 
 		"OnChannelInterrupted"
@@ -2922,6 +2938,11 @@
 			"RemoveModifier"
 			{
 				"ModifierName"			"modifier_inspire"
+				"Target"				"CASTER"
+			}
+			"RemoveModifier"
+			{
+				"ModifierName"			"modifier_channeling"
 				"Target"				"CASTER"
 			}
 		}
@@ -2965,6 +2986,27 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_increase"
 				}
 			}
+
+			"modifier_channeling"
+		    {
+		        "ThinkInterval" "2.0"
+		        "OnIntervalThink"
+		        {
+		            // Looping Animation
+		            "ApplyModifier"
+		            {
+		                "ModifierName"  "channelling_animation"
+		                "Target"        "CASTER"
+		            }
+		        }
+		    }
+
+		    "channelling_animation"
+		    {
+		        "IsHidden" "1"
+		        "Duration" "1.9"
+		        "OverrideAnimation" "ACT_DOTA_CAST_ABILITY_4"
+		    }
 		}
 	}
 
@@ -2979,13 +3021,14 @@
 		"AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
 
 		// Behavior
-		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
 		// Stats
 		"AbilityManaCost"			"140 170 200"
 		"AbilityCooldown"         	"100 90 80"
+		"AoERadius"					"%radius"
 
 		"AbilityChannelTime"      	"0.0"
 		"AbilityCastPoint"        	"0.3"
@@ -3086,6 +3129,7 @@
 		"AbilityManaCost"			"0"
 		"AbilityCooldown"         	"10"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastRange"      	"700"
 
 		"AbilityChannelTime"      	"0.0"
 		"AbilityCastPoint"        	"0.3"
@@ -3170,6 +3214,7 @@
 		// Stats
 		"AbilityManaCost"			"30 40 50 60"
 		"AbilityCooldown"         	"8"
+		"AbilityCastRange"      	"900"
 
 		"AbilityChannelTime"      	"0.0"
 		"AbilityCastPoint"        	"0.3"
@@ -3489,6 +3534,7 @@
 
 		"AbilityChannelTime"      	"0.0"
 		"AbilityCastPoint"        	"0.3"
+		"AoERadius"					"%radius"
 
 		// Special
 		"AbilitySpecial"
@@ -3559,6 +3605,628 @@
 					{
 						"ScriptFile"	"abilities/celaena_brand.lua"
 						"Function"		"EndBrandParticle"
+					}
+				}
+			}
+		}
+	}
+
+	// ==========================
+	// Hero
+	// Icarus
+	// ==========================
+
+	// ==========================
+	// Fire Plume
+	// ==========================
+	"icarus_fire_plume"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "phoenix_launch_fire_spirit"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"	
+
+		// Stats
+		"AbilityManaCost"			"110 130 150 170"
+		"AbilityCooldown"         	"30 28 26 24"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+		"AoERadius"					"%radius"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 160 220 280"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"16 19 22 25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+		}
+
+		// Datadriven
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Warlock.RainOfChaos"
+				"Target"			"CASTER"
+			}
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"  	"CASTER"
+					"Radius" 	"%radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+			
+				"Action"    
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%damage"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_fire_plume_dot"
+						"Target" 		"TARGET"
+						"Duration"		"%duration"
+					}
+				}
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_fire_plume_dot"
+			{
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"ThinkInterval"		"1.0"
+
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%damage_per_second"
+					}
+				}
+			}
+		}
+	}
+
+	// ==========================
+	// Flight of the Phoenix
+	// ==========================
+	"icarus_flight_of_the_phoenix"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "phoenix_fire_spirits"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		// Stats
+		"AbilityManaCost"			"100 110 120 130"
+		"AbilityCooldown"         	"30 28 26 24"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.3"
+		"AoERadius"					"%radius"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_bonus"			"2 4 6 8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"as_bonus"				"20 25 30 35"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_bonus_percent"		"20"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"900"
+			}
+		}
+
+		// Precache
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_warlock/warlock_shadow_word_buff.vpcf"
+		}
+
+		// Datadriven
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Phoenix.FireSpirits.Cast"
+				"Target"			"CASTER"
+			}
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_phoenix/phoenix_supernova_scepter.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"  	"CASTER"
+					"Radius" 	"%radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+			
+				"Action"    
+				{
+					
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_flight_of_the_phoenix"
+						"Target" 		"TARGET"
+						"Duration"		"%duration"
+					}
+				}
+			}
+		}
+
+		// Modifiers
+		"Modifiers"
+		{
+			"modifier_flight_of_the_phoenix"
+			{
+			
+				"EffectName"		"particles/units/heroes/hero_warlock/warlock_shadow_word_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"ThinkInterval"		"1.0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" 	"%as_bonus"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 	"%ms_bonus_percent" 
+				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" 		"%armor_bonus" 
+				}
+			}
+		}
+	}
+
+	// ==========================
+	// Heart of the Phoenix
+	// ==========================
+	"icarus_heart_of_the_phoenix"
+	{
+		// General
+	    "BaseClass"                 	"ability_datadriven"
+	    "AbilityTextureName"        	"brewmaster_fire_permanent_immolation"
+	    "AbilityType"               	"DOTA_ABILITY_TYPE_BASIC"
+
+	    // Behavior
+	    "AbilityBehavior"           	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	  	"AoERadius"					"%radius"
+
+	    // Special
+	    "AbilitySpecial"
+	    {
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"health_regen_bonus"  	"2 4 6 8"
+			}
+			"02"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"burn_per_second"    	"10 15 20 25"
+			}
+			"03"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"radius"     	 		"900"
+			}
+	    }
+		// Precache
+		"precache"
+		{
+	    	"particle"	"particles/items2_fx/radiance.vpcf"
+		}
+
+	    // Modifiers
+	    "Modifiers"
+	    {
+		 	"modifier_heart_of_the_phoenix_ally"
+		 	{
+		    	"IsHidden"    	"1"
+		        "Passive" 		"1"
+
+		        "Aura"			"modifier_heart_of_the_phoenix_ally_aura"
+		        "Aura_Radius"	"%radius"
+		        "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+
+			"modifier_heart_of_the_phoenix_enemy"
+		 	{
+		    	"IsHidden"    	"1"
+		        "Passive" 		"1"
+
+		        "Aura"			"modifier_heart_of_the_phoenix_enemy_aura"
+		        "Aura_Radius"	"%radius"
+		        "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"  	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_NONE"
+			}
+
+			"modifier_heart_of_the_phoenix_ally_aura"
+		  	{
+		      	"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen_bonus"
+				}
+		   	}
+
+		   	"modifier_heart_of_the_phoenix_enemy_aura"
+		  	{
+		      	"IsDebuff"			"1"
+				"EffectName"		"particles/items2_fx/radiance.vpcf"
+				"EffectAttachType" 	"attach_hitloc"
+				"ThinkInterval"		"1.0"
+
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%burn_per_second"
+					}
+				}
+		   	}
+	    }
+	}
+
+	// ==========================
+	// Rebirth
+	// ==========================
+	"icarus_rebirth"
+	{
+		// General
+		"BaseClass"                 "ability_datadriven"
+		"AbilityTextureName"        "phoenix_supernova"
+		"AbilityType"               "DOTA_ABILITY_TYPE_ULTIMATE"
+
+		// Behavior
+		"AbilityBehavior"          	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+
+		// Stats
+		"AbilityManaCost"			"200"
+		"AbilityCooldown"         	"110"
+		"AoERadius"					"%radius"
+
+		"AbilityChannelTime"      	"0.0"
+		"AbilityCastPoint"        	"0.01"
+
+		// Special
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"900"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"heal_per_sec"		"6 8 10"
+			}
+			
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1 2 3"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"6"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+			"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_death.vpcf"
+			"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
+			"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_hit.vpcf"
+			"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_radiance.vpcf"
+			"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_radiance_creep.vpcf"
+			"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
+			"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_start.vpcf"
+		}
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Phoenix.SuperNova.Cast"
+				"Target"			"CASTER"
+			}
+			
+			"AttachEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_supernova_start.vpcf"
+				"EffectAttachType"	"PATTACH_ABSORIGIN"
+				"Target"			"CASTER"
+			}
+			
+			"SpawnUnit"
+			{
+				"UnitName"		"npc_dota_phoenix_sun"
+				"UnitCount"		"1"
+				"SpawnRadius"	"0"
+				"Target"		"CASTER"
+
+				//"Duration"		"%duration"
+				
+				"OnSpawn"
+				{
+					"ApplyModifier"
+					{
+						"Target"		"TARGET"
+						"ModifierName"	"modifier_supernova_sun_form_egg_datadriven"
+					}
+					
+					"FireSound"
+					{
+						"EffectName"		"Hero_Phoenix.SuperNova.Begin"
+						"Target"			"TARGET"
+					}
+				}
+			}
+			
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_supernova_sun_form_caster_datadriven"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_supernova_sun_form_caster_datadriven"
+			{
+				"IsBuff"	"1"
+				
+				"Duration"	"%duration"
+				
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/icarus_rebirth.lua"
+						"Function"			"HideCaster"
+					}
+				}
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/icarus_rebirth.lua"
+						"Function"			"ShowCaster"
+					}
+				}
+				
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_OUT_OF_GAME"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			
+			"modifier_supernova_sun_form_egg_datadriven"
+			{
+				"IsBuff"	"1"
+				
+				"Duration"	"%duration"
+				
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING"				"1"
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"	"1"
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"	"1"
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"		"1"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"0"
+				}
+				
+				"OverrideAnimation"		"ACT_DOTA_IDLE"	// egg_cast_supernova
+				
+				"Aura"			"modifier_supernova_heal_datadriven"
+				"Aura_Radius"	"%radius"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+				
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
+						"EffectAttachType"	"PATTACH_ABSORIGIN_FOLLOW"
+						"Target"			"TARGET"
+						
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_hitloc"
+						}
+					}
+				}
+				
+				"OnAttacked"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_supernova_hit.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"			"TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+						}
+					}
+				}
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/icarus_rebirth.lua"
+						"Function"			"OnDestroyEgg"
+						"Target"			"TARGET"
+					}
+				}
+			}
+			
+			"modifier_supernova_egg_explode_datadriven"
+			{
+				"IsHidden"	"1"
+				
+				"OnCreated"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"%radius"
+							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
+						
+						"Action"
+						{
+							"Stun"
+							{
+								"Duration"	"%stun_duration"
+								"Target"	"TARGET"
+							}
+						}
+					}
+				}
+			}
+			
+			"modifier_supernova_heal_datadriven"
+			{
+				
+				"ThinkInterval"		"1.0"
+				
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_supernova_radiance.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"			"TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+							"CASTER"	"follow_origin"
+						}
+					}
+				}
+
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/icarus_rebirth.lua"
+						"Function"			"HealPercent"
 					}
 				}
 			}
