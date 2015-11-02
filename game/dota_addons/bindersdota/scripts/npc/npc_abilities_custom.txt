@@ -2700,7 +2700,7 @@
 			"01"
 			{
 				"var_type"              "FIELD_INTEGER"
-				"regen_per_unit"        "4.5 8 11.5 15"
+				"regen_per_unit"        "6 9 12 15"
 			}
 			"02"
 			{
